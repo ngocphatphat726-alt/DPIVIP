@@ -1208,6 +1208,7 @@
         .badge-2h { background: rgba(251, 146, 60, 0.06); color: #fb923c; border: 1px solid rgba(251, 146, 60, 0.03); }
         .badge-admin { background: rgba(255, 0, 0, 0.08); color: #ef4444; border: 1px solid rgba(255, 0, 0, 0.04); }
 
+        /* DPI VIP Box - Mới */
         .dpi-box {
             background: rgba(0, 255, 136, 0.03);
             border: 1px solid rgba(0, 255, 136, 0.06);
@@ -1246,12 +1247,12 @@
         }
 
         .dpi-box .dpi-header .icon {
-            font-size: 24px;
+            font-size: 28px;
             animation: iconFloat 2s ease-in-out infinite;
         }
 
         .dpi-box .dpi-header .title {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 700;
             color: #00ff88;
             font-family: 'Orbitron', monospace;
@@ -1274,11 +1275,11 @@
 
         .dpi-box .dpi-desc {
             font-size: 12px;
-            color: rgba(255, 255, 255, 0.25);
-            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.3);
+            line-height: 1.8;
             position: relative;
             z-index: 1;
-            padding: 8px 12px;
+            padding: 10px 12px;
             background: rgba(0, 0, 0, 0.2);
             border-radius: 12px;
             border-left: 2px solid rgba(0, 255, 136, 0.1);
@@ -1287,6 +1288,35 @@
 
         .dpi-box .dpi-desc .highlight {
             color: #00ff88;
+            font-weight: 600;
+        }
+
+        .dpi-box .dpi-desc .highlight-gold {
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        .dpi-box .dpi-desc .highlight-red {
+            color: #ef4444;
+            font-weight: 600;
+        }
+
+        .dpi-box .dpi-desc .ios-version {
+            color: #00d4ff;
+            font-weight: 600;
+        }
+
+        .dpi-box .dpi-notice {
+            font-size: 11px;
+            color: #ffd700;
+            text-align: center;
+            padding: 8px 12px;
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 215, 0, 0.06);
+            margin-bottom: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
         .dpi-box .dpi-download {
@@ -1327,6 +1357,7 @@
             z-index: 1;
         }
 
+        /* CONFIG VIP Box */
         .config-vip-box {
             background: rgba(255, 215, 0, 0.03);
             border: 1px solid rgba(255, 215, 0, 0.06);
@@ -1522,6 +1553,16 @@
             .price-item .btn-buy {
                 padding: 4px 14px;
                 font-size: 11px;
+            }
+            .dpi-box .dpi-desc {
+                font-size: 11px;
+                line-height: 1.6;
+            }
+            .dpi-box .dpi-header .title {
+                font-size: 14px;
+            }
+            .dpi-box .dpi-notice {
+                font-size: 10px;
             }
         }
     </style>
@@ -1755,7 +1796,7 @@
                     </div>
                 </div>
 
-                <!-- Admin Slots - KHÔNG GIỚI HẠN -->
+                <!-- Admin Slots -->
                 <div class="admin-slots-container" id="adminSlotsContainer">
                     <div class="admin-slots-title">👑 ADMIN - KHÔNG GIỚI HẠN THIẾT BỊ</div>
                     <div class="admin-slot" id="adminSlot1">
@@ -1793,7 +1834,7 @@
                     <div class="result-item"><span>Nút Bắn Khuyến Nghị</span> <strong id="fire">0</strong>%</div>
                 </div>
 
-                <!-- DPI VIP -->
+                <!-- DPI VIP - Hiển thị với tất cả key -->
                 <div id="dpiContainer" class="dpi-box dpi-hidden">
                     <div class="dpi-header">
                         <span class="icon">🎯</span>
@@ -1801,9 +1842,18 @@
                         <span class="badge-dpi">PREMIUM</span>
                     </div>
                     <div class="dpi-desc">
-                        📱 Tối ưu hóa DPI cho <span class="highlight">iPhone/iPad</span><br>
-                        ⚡ Cấu hình <span class="highlight">mượt mà</span>, không delay<br>
-                        🔥 Hỗ trợ <span class="highlight">tất cả thiết bị iOS</span>
+                        <strong>📌 DPI VIP</strong> sẽ hỗ trợ các bạn fix rung và fix lố khá hiệu quả và giúp đầm tâm và dễ kéo đầu<br>
+                        <br>
+                        🔹 <span class="highlight">Đây chỉ là bản free được cho đi kèm với key</span> nên tác dụng còn tùy trường hợp iOS nên ae lưu ý nha<br>
+                        <br>
+                        📱 <span class="ios-version">iOS phù hợp: iOS 17, iOS 18.7.1 - 18.7.9, iOS 26.1</span><br>
+                        <br>
+                        🔥 Còn ae muốn ngon thì ib cho Admin<br>
+                        <br>
+                        ⏰ <span class="highlight-red">Tác dụng chỉ trong khoảng thời gian còn key thôi nha!</span>
+                    </div>
+                    <div class="dpi-notice">
+                        ⚠️ SAU KHI CÀI XONG NHỚ KDL THIẾT BỊ ĐỂ CONFIG HOẠT ĐỘNG NHA
                     </div>
                     <button class="dpi-download" onclick="downloadDPI()">
                         📦 TẢI DPI VIP CONFIG
@@ -1811,7 +1861,7 @@
                     <p class="dpi-sub">⬇️ iOS 15.0+ compatible</p>
                 </div>
 
-                <!-- CONFIG VIP -->
+                <!-- CONFIG VIP - Chỉ hiển thị với key 1 TUẦN trở lên -->
                 <div id="configContainer" class="config-vip-box dpi-hidden">
                     <div class="config-header">
                         <span class="icon">⚡</span>
@@ -2054,6 +2104,12 @@
             return date.toISOString();
         }
 
+        // Kiểm tra key có hiển thị CONFIG VIP không (từ 1 TUẦN trở lên)
+        function isConfigVipType(type) {
+            const configTypes = ['admin', 'vip', '1m', '2m', '3m', '1w'];
+            return configTypes.includes(type);
+        }
+
         function isPremiumType(type) {
             const premiumTypes = ['vip', 'admin', '1m', '3m', '2m'];
             return premiumTypes.includes(type);
@@ -2091,7 +2147,7 @@
         }
 
         // ============================================================
-        // UPDATE ADMIN SLOTS - KHÔNG GIỚI HẠN
+        // UPDATE ADMIN SLOTS
         // ============================================================
         function updateAdminSlots() {
             const saved = localStorage.getItem('adminDevices');
@@ -2099,7 +2155,6 @@
                 adminDevices = JSON.parse(saved);
             }
 
-            // Hiển thị tối đa 5 slot, nhưng admin có thể có nhiều hơn
             const slots = [
                 document.getElementById('adminSlot1'),
                 document.getElementById('adminSlot2'),
@@ -2108,7 +2163,6 @@
                 document.getElementById('adminSlot5')
             ];
 
-            // Nếu có nhiều hơn 5 thiết bị, hiển thị thêm
             const totalDevices = adminDevices.filter(d => d).length;
             const displayCount = Math.min(totalDevices, 5);
 
@@ -2127,7 +2181,6 @@
                 }
             });
 
-            // Nếu có nhiều hơn 5 thiết bị, hiển thị thông báo
             const container = document.querySelector('.admin-slots-container');
             let extraMsg = container.querySelector('.extra-devices-msg');
             if (totalDevices > 5) {
@@ -2186,7 +2239,7 @@
         }
 
         // ============================================================
-        // HÀM KIỂM TRA KEY - ADMIN KHÔNG GIỚI HẠN
+        // HÀM KIỂM TRA KEY
         // ============================================================
         function checkKey() {
             const key = document.getElementById("keyInput").value.trim().toUpperCase();
@@ -2216,7 +2269,6 @@
                 }
             }
 
-            // ADMIN - KHÔNG GIỚI HẠN THIẾT BỊ
             if (data.type === 'admin') {
                 const saved = localStorage.getItem('adminDevices');
                 if (saved) {
@@ -2228,7 +2280,6 @@
                 updateAdminSlots();
             }
 
-            // CÁC KEY KHÁC - CHỈ 1 THIẾT BỊ
             if (data.type !== 'admin' && data.devices.length > 0 && !data.devices.includes(deviceId)) {
                 infoEl.className = 'key-info error';
                 infoEl.innerHTML = `⛔ Key đã được đăng nhập trên thiết bị khác! Chỉ 1 thiết bị duy nhất.`;
@@ -2436,11 +2487,13 @@
                 return;
             }
 
-            if (isPremiumType(dataKey.type)) {
-                document.getElementById('dpiContainer').classList.remove('dpi-hidden');
+            // HIỂN THỊ DPI VIP - Tất cả key đều hiển thị
+            document.getElementById('dpiContainer').classList.remove('dpi-hidden');
+
+            // HIỂN THỊ CONFIG VIP - Chỉ key từ 1 TUẦN trở lên
+            if (isConfigVipType(dataKey.type)) {
                 document.getElementById('configContainer').classList.remove('dpi-hidden');
             } else {
-                document.getElementById('dpiContainer').classList.add('dpi-hidden');
                 document.getElementById('configContainer').classList.add('dpi-hidden');
             }
 
@@ -2561,9 +2614,10 @@
         }
 
         // ============================================================
-        // DPI VIP CONFIG
+        // DPI VIP CONFIG - Tạo file .mobileconfig
         // ============================================================
         function downloadDPI() {
+            // Tạo file config DPI VIP (không có web clip)
             const config = `<?xml version="1.0" encoding="UTF-8"?>
         <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
         <plist version="1.0">
@@ -2573,40 +2627,19 @@
             <key>PayloadVersion</key>
             <integer>1</integer>
             <key>PayloadIdentifier</key>
-            <string>com.npdpi.vip.config</string>
+            <string>com.npdpi.dpi.config</string>
             <key>PayloadUUID</key>
             <string>${generateUUID()}</string>
             <key>PayloadDisplayName</key>
-            <string>DPI VIP Configuration</string>
+            <string>DPI VIP - Fix Rung &amp; Lố</string>
             <key>PayloadDescription</key>
-            <string>DPI VIP - Tối ưu hóa cấu hình iOS</string>
+            <string>DPI VIP - Hỗ trợ fix rung, fix lố, đầm tâm, dễ kéo đầu</string>
             <key>PayloadOrganization</key>
             <string>NP DPI Pro</string>
             <key>PayloadRemovalDisallowed</key>
             <false/>
             <key>PayloadContent</key>
-            <array>
-                <dict>
-                    <key>PayloadType</key>
-                    <string>com.apple.webClip.managed</string>
-                    <key>PayloadVersion</key>
-                    <integer>1</integer>
-                    <key>PayloadIdentifier</key>
-                    <string>com.npdpi.vip.webclip</string>
-                    <key>PayloadUUID</key>
-                    <string>${generateUUID()}</string>
-                    <key>PayloadDisplayName</key>
-                    <string>DPI VIP</string>
-                    <key>URL</key>
-                    <string>https://npdpi.vip/config</string>
-                    <key>Label</key>
-                    <string>DPI VIP</string>
-                    <key>IsRemovable</key>
-                    <true/>
-                    <key>FullScreen</key>
-                    <true/>
-                </dict>
-            </array>
+            <array/>
         </dict>
         </plist>`;
 
@@ -2761,6 +2794,8 @@
             console.log('👑 Admin key:', ADMIN_KEY);
             console.log('📱 Admin: KHÔNG GIỚI HẠN thiết bị');
             console.log('⏰ Tự động gia hạn key sau 5 ngày hết hạn');
+            console.log('🎯 DPI VIP: Hiển thị với tất cả key');
+            console.log('⚡ CONFIG VIP: Chỉ hiển thị với key 1 TUẦN trở lên');
 
             const saved = localStorage.getItem('adminDevices');
             if (saved) {
