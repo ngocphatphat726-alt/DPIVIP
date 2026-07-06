@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>NP DPI Pro - Key System</title>
+    <title>NP DPI PRO - Premium</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700;800;900&display=swap');
 
         * {
             margin: 0;
@@ -15,7 +15,7 @@
         }
 
         body {
-            background: #0a0e17;
+            background: #0a0e1a;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -23,126 +23,256 @@
             padding: 20px;
             font-family: 'Inter', sans-serif;
             position: relative;
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
-        /* Animated Background */
-        body::before {
-            content: '';
+        .snow-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(ellipse at 20% 50%, rgba(0, 200, 255, 0.05) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 50%, rgba(120, 0, 255, 0.05) 0%, transparent 60%),
-                radial-gradient(ellipse at 50% 100%, rgba(0, 255, 200, 0.03) 0%, transparent 40%);
             pointer-events: none;
             z-index: 0;
+            overflow: hidden;
         }
 
-        /* Floating Particles */
-        .particle {
+        .snowflake {
+            position: absolute;
+            top: -20px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            animation: fall linear infinite;
+            opacity: 0.8;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-20px) rotate(0deg) scale(1); opacity: 0.8; }
+            100% { transform: translateY(110vh) rotate(720deg) scale(0.5); opacity: 0.2; }
+        }
+
+        .snow-hidden .snowflake {
+            display: none !important;
+        }
+
+        .bg-effects {
             position: fixed;
-            border-radius: 50%;
-            pointer-events: none;
+            inset: 0;
             z-index: 0;
-            background: radial-gradient(circle, rgba(0, 200, 255, 0.1), transparent);
-            animation: floatParticle linear infinite;
+            overflow: hidden;
+            pointer-events: none;
         }
 
-        @keyframes floatParticle {
+        .bg-effects .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            animation: orbFloat 25s ease-in-out infinite;
+        }
+
+        .bg-effects .orb:nth-child(1) {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.15), transparent);
+            top: -250px;
+            left: -250px;
+            animation-delay: 0s;
+        }
+
+        .bg-effects .orb:nth-child(2) {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.15), transparent);
+            bottom: -200px;
+            right: -200px;
+            animation-delay: -8s;
+        }
+
+        .bg-effects .orb:nth-child(3) {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 255, 200, 0.1), transparent);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -16s;
+        }
+
+        .bg-effects .orb:nth-child(4) {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.1), transparent);
+            top: 20%;
+            right: 10%;
+            animation-delay: -5s;
+        }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(40px, -40px) scale(1.1); }
+            50% { transform: translate(-20px, 30px) scale(0.9); }
+            75% { transform: translate(30px, 20px) scale(1.05); }
+        }
+
+        .orb-hidden .orb {
+            display: none !important;
+        }
+
+        .particles {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(0, 212, 255, 0.2);
+            border-radius: 50%;
+            animation: particleFloat linear infinite;
+        }
+
+        @keyframes particleFloat {
             0% { transform: translateY(100vh) scale(0); opacity: 0; }
             10% { opacity: 1; }
             90% { opacity: 1; }
-            100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+
+        .particle-hidden .particle {
+            display: none !important;
         }
 
         .container {
             width: 100%;
-            max-width: 460px;
+            max-width: 440px;
             position: relative;
             z-index: 1;
+            max-height: 100vh;
+            overflow-y: auto;
+            padding: 4px 0;
         }
 
-        /* Glassmorphism Box */
-        .box {
+        .card {
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
             border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 24px;
-            padding: 28px 24px;
-            margin-top: 12px;
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            border-radius: 30px;
+            padding: 28px 22px;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.04);
             position: relative;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 12px;
+            max-height: 95vh;
+            overflow-y: auto;
         }
 
-        .box::before {
+        .card::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        .card::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+        }
+
+        .card::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+        }
+
+        .card::before {
             content: '';
             position: absolute;
             inset: -1px;
-            border-radius: 24px;
+            border-radius: 30px;
             padding: 1px;
-            background: linear-gradient(135deg, rgba(0, 200, 255, 0.2), rgba(120, 0, 255, 0.2), rgba(0, 255, 200, 0.1));
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(124, 58, 237, 0.15), rgba(0, 255, 200, 0.08));
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             pointer-events: none;
         }
 
-        .box:hover {
-            transform: translateY(-2px);
-            border-color: rgba(255, 255, 255, 0.08);
-            box-shadow: 
-                0 30px 80px rgba(0, 0, 0, 0.5),
-                0 0 40px rgba(0, 200, 255, 0.03),
-                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        .card::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 32px;
+            background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.03), transparent, rgba(124, 58, 237, 0.03), transparent);
+            background-size: 400% 400%;
+            animation: borderGlow 6s ease-in-out infinite;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .animated {
-            animation: fadeSlide 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeSlide 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         @keyframes fadeSlide {
-            from { opacity: 0; transform: translateY(20px) scale(0.96); }
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        /* Header */
         .app-header {
             text-align: center;
             margin-bottom: 20px;
         }
 
         .app-icon {
-            font-size: 40px;
+            font-size: 44px;
             display: block;
-            margin-bottom: 6px;
+            margin-bottom: 2px;
+            filter: drop-shadow(0 0 50px rgba(0, 212, 255, 0.15));
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
         }
 
         .app-title {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 900;
+            font-family: 'Orbitron', monospace;
+            letter-spacing: 3px;
             background: linear-gradient(135deg, #00d4ff, #7c3aed, #00ff88);
+            background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: -0.5px;
-            text-shadow: 0 0 40px rgba(0, 212, 255, 0.1);
+            animation: gradShift 4s ease-in-out infinite;
+            text-shadow: none;
+        }
+
+        @keyframes gradShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .app-sub {
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.3);
-            letter-spacing: 3px;
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.15);
+            letter-spacing: 6px;
             text-transform: uppercase;
             margin-top: 2px;
-            font-weight: 400;
+            font-weight: 300;
+            font-family: 'Orbitron', monospace;
         }
 
         .app-sub .dot {
@@ -150,18 +280,27 @@
             width: 5px;
             height: 5px;
             border-radius: 50%;
-            background: #00ff88;
+            background: #00d4ff;
             margin: 0 6px;
             animation: pulseDot 1.5s ease-in-out infinite;
             vertical-align: middle;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
         }
 
         @keyframes pulseDot {
             0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.3; transform: scale(0.6); }
+            50% { opacity: 0.2; transform: scale(0.5); }
         }
 
-        /* Input */
+        .login-desc {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 13px;
+            margin-bottom: 16px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
         .input-group {
             position: relative;
             margin-top: 4px;
@@ -177,34 +316,49 @@
             pointer-events: none;
         }
 
+        .input-group .glow-line {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00d4ff, #7c3aed);
+            transition: all 0.4s ease;
+            transform: translateX(-50%);
+        }
+
+        input:focus ~ .glow-line {
+            width: 80%;
+        }
+
         input {
             width: 100%;
             padding: 16px 16px 16px 48px;
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.06);
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.02);
             color: #fff;
             font-size: 15px;
             outline: none;
             font-family: 'Inter', sans-serif;
             transition: all 0.3s ease;
             font-weight: 400;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
         }
 
         input::placeholder {
-            color: rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.1);
             font-weight: 300;
+            letter-spacing: 1px;
         }
 
         input:focus {
-            border-color: rgba(0, 212, 255, 0.3);
-            background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.05), inset 0 0 30px rgba(0, 212, 255, 0.02);
+            border-color: rgba(0, 212, 255, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.03);
         }
 
-        /* Buttons */
-        button {
+        .btn {
             width: 100%;
             padding: 16px;
             margin-top: 12px;
@@ -215,42 +369,42 @@
             cursor: pointer;
             font-family: 'Inter', sans-serif;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            letter-spacing: 2px;
             position: relative;
             overflow: hidden;
-            letter-spacing: 0.5px;
         }
 
-        button::after {
+        .btn::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent);
             opacity: 0;
             transition: opacity 0.3s ease;
         }
 
-        button:hover::after {
+        .btn:hover::after {
             opacity: 1;
         }
 
-        button:active {
+        .btn:active {
             transform: scale(0.97);
         }
 
         .btn-primary {
             background: linear-gradient(135deg, #00d4ff, #7c3aed);
             color: #fff;
-            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.15);
+            box-shadow: 0 4px 30px rgba(0, 212, 255, 0.1);
         }
 
         .btn-primary:hover {
-            box-shadow: 0 8px 40px rgba(0, 212, 255, 0.25);
+            box-shadow: 0 8px 50px rgba(0, 212, 255, 0.2);
             transform: translateY(-2px);
         }
 
         .btn-secondary {
             background: rgba(255, 255, 255, 0.04);
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
@@ -263,117 +417,303 @@
         .btn-vip {
             background: linear-gradient(135deg, #f59e0b, #ffd700);
             color: #000;
-            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.15);
+            box-shadow: 0 4px 30px rgba(255, 215, 0, 0.1);
         }
 
         .btn-vip:hover {
-            box-shadow: 0 8px 40px rgba(255, 215, 0, 0.25);
+            box-shadow: 0 8px 50px rgba(255, 215, 0, 0.2);
             transform: translateY(-2px);
         }
 
         .btn-admin {
             background: linear-gradient(135deg, #7c3aed, #a855f7);
             color: #fff;
-            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.15);
+            box-shadow: 0 4px 30px rgba(124, 58, 237, 0.1);
         }
 
         .btn-admin:hover {
-            box-shadow: 0 8px 40px rgba(124, 58, 237, 0.25);
+            box-shadow: 0 8px 50px rgba(124, 58, 237, 0.2);
             transform: translateY(-2px);
         }
 
         .btn-dpi {
             background: linear-gradient(135deg, #00ff88, #00d4ff);
             color: #000;
-            box-shadow: 0 4px 20px rgba(0, 255, 136, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 255, 136, 0.1);
         }
 
         .btn-dpi:hover {
-            box-shadow: 0 8px 40px rgba(0, 255, 136, 0.2);
+            box-shadow: 0 8px 50px rgba(0, 255, 136, 0.2);
             transform: translateY(-2px);
         }
 
-        .btn-understood {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-            color: #fff;
-            font-size: 16px;
-            letter-spacing: 4px;
-            padding: 18px;
-            box-shadow: 0 4px 30px rgba(239, 68, 68, 0.2);
-            animation: glowPulse 2s ease-in-out infinite;
+        .btn-gold {
+            background: linear-gradient(135deg, #f59e0b, #ffd700);
+            color: #000;
+            box-shadow: 0 4px 30px rgba(255, 215, 0, 0.1);
+            margin-top: 6px;
         }
 
-        .btn-understood:hover {
-            box-shadow: 0 8px 50px rgba(239, 68, 68, 0.35);
+        .btn-gold:hover {
+            box-shadow: 0 8px 50px rgba(255, 215, 0, 0.2);
             transform: translateY(-2px);
         }
 
-        @keyframes glowPulse {
-            0%, 100% { box-shadow: 0 4px 30px rgba(239, 68, 68, 0.2); }
-            50% { box-shadow: 0 4px 50px rgba(239, 68, 68, 0.4); }
+        .effect-toggle-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
         }
 
-        /* Progress */
+        .effect-toggle-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+        }
+
+        .effect-toggle-btn:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: scale(1.05);
+        }
+
+        .effect-toggle-btn.on {
+            border-color: rgba(0, 212, 255, 0.15);
+            color: #00d4ff;
+        }
+
+        .effect-toggle-btn.off {
+            border-color: rgba(239, 68, 68, 0.15);
+            color: #ef4444;
+        }
+
+        .effect-toggle-btn .status-text {
+            font-size: 8px;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .key-info {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.15);
+            text-align: center;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 14px;
+            margin-top: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            font-weight: 400;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .key-info.success {
+            color: #00ff88;
+            border-color: rgba(0, 255, 136, 0.06);
+            background: rgba(0, 255, 136, 0.03);
+        }
+
+        .key-info.error {
+            color: #ef4444;
+            border-color: rgba(239, 68, 68, 0.06);
+            background: rgba(239, 68, 68, 0.03);
+        }
+
+        .key-info.vip {
+            color: #ffd700;
+            border-color: rgba(255, 215, 0, 0.06);
+            background: rgba(255, 215, 0, 0.03);
+        }
+
         .progress-container {
             margin-top: 16px;
         }
 
         .progress-bar-track {
             width: 100%;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.05);
+            height: 4px;
+            background: rgba(255, 255, 255, 0.04);
             border-radius: 10px;
             overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar-track .glow {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.05), transparent);
+            animation: shimmer 2s linear infinite;
         }
 
         #progressBar {
             width: 0%;
             height: 100%;
             background: linear-gradient(90deg, #00d4ff, #7c3aed, #00ff88);
+            background-size: 300% 100%;
             border-radius: 10px;
             transition: width 0.05s linear;
             position: relative;
+            animation: progressGrad 2s linear infinite;
         }
 
-        #progressBar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            animation: shimmer 1s linear infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+        @keyframes progressGrad {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 300% 0%; }
         }
 
         #percent {
             text-align: center;
             font-size: 28px;
-            font-weight: 800;
+            font-weight: 700;
             margin-top: 10px;
             background: linear-gradient(135deg, #00d4ff, #7c3aed);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .notice-box {
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid rgba(255, 215, 0, 0.15);
+            border-radius: 20px;
+            padding: 22px 18px;
+            margin-bottom: 18px;
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.03);
+            animation: noticeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes noticeIn {
+            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .notice-box .notice-header {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 900;
+            color: #ffd700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 14px;
             font-family: 'Inter', sans-serif;
         }
 
-        /* Status Badges */
+        .notice-box .notice-line {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 7px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            font-size: 13px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+        }
+
+        .notice-box .notice-line:last-child {
+            border-bottom: none;
+        }
+
+        .notice-box .notice-icon {
+            font-size: 15px;
+            min-width: 26px;
+            text-align: center;
+        }
+
+        .notice-box .notice-text .hl-red {
+            color: #ef4444;
+            font-weight: 600;
+        }
+
+        .notice-box .notice-text .hl-gold {
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        .notice-box .notice-divider {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.05);
+            font-size: 12px;
+            letter-spacing: 4px;
+            padding: 6px 0;
+            font-weight: 300;
+        }
+
+        .notice-box .notice-footer {
+            text-align: center;
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.2);
+            letter-spacing: 1px;
+            font-weight: 300;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        .notice-box .notice-footer .hl-contact {
+            color: #00d4ff;
+            font-weight: 600;
+        }
+
+        .notice-box .notice-footer .hl-gold {
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        .btn-understood {
+            width: 100%;
+            padding: 16px;
+            margin-top: 12px;
+            border: none;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f59e0b, #ffd700);
+            color: #000;
+            letter-spacing: 4px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 30px rgba(255, 215, 0, 0.15);
+        }
+
+        .btn-understood:hover {
+            box-shadow: 0 8px 50px rgba(255, 215, 0, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .sense-content {
+            display: none;
+        }
+
         .badge-status {
             text-align: center;
-            font-weight: 600;
-            font-size: 11px;
-            padding: 12px;
-            border-radius: 14px;
+            font-weight: 700;
+            font-size: 12px;
+            padding: 14px;
+            border-radius: 16px;
             margin-bottom: 16px;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             font-family: 'Inter', sans-serif;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255,255,255,0.1);
         }
 
         .badge-success {
@@ -395,176 +735,134 @@
             animation: alertGlow 1.5s ease-in-out infinite;
         }
 
-        @keyframes alertGlow {
-            0%, 100% { border-color: rgba(239, 68, 68, 0.08); }
-            50% { border-color: rgba(239, 68, 68, 0.3); }
+        .badge-device-locked {
+            background: rgba(251, 146, 60, 0.06);
+            color: #fb923c;
+            border: 1px solid rgba(251, 146, 60, 0.08);
         }
 
-        /* Result Items */
-        .result-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin-top: 4px;
+        @keyframes alertGlow {
+            0%, 100% { border-color: rgba(239, 68, 68, 0.08); }
+            50% { border-color: rgba(239, 68, 68, 0.25); }
+        }
+
+        .badge-status .dot-status {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            animation: dotPulse 2s ease-in-out infinite;
+            vertical-align: middle;
+        }
+
+        .dot-status.green { background: #00ff88; box-shadow: 0 0 25px rgba(0, 255, 136, 0.3); }
+        .dot-status.gold { background: #ffd700; box-shadow: 0 0 25px rgba(255, 215, 0, 0.3); }
+        .dot-status.red { background: #ef4444; box-shadow: 0 0 25px rgba(239, 68, 68, 0.3); }
+        .dot-status.orange { background: #fb923c; box-shadow: 0 0 25px rgba(251, 146, 60, 0.3); }
+
+        @keyframes dotPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.6); }
+        }
+
+        .result-container {
+            margin-top: 8px;
         }
 
         .result-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 14px;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 12px 4px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
             transition: all 0.3s ease;
         }
 
         .result-item:hover {
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(255, 255, 255, 0.02);
             border-color: rgba(255, 255, 255, 0.06);
         }
 
-        .result-item .label {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 11px;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-        }
-
-        .result-item .value {
-            font-size: 16px;
-            font-weight: 700;
-            color: #00d4ff;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .result-item .value.vip-gold {
-            color: #ffd700;
-        }
-
-        /* Device Name */
-        #deviceName {
-            text-align: center;
-            font-size: 20px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #00d4ff, #00ff88);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 4px;
-            letter-spacing: -0.5px;
-        }
-
-        /* Key Info */
-        .key-info {
-            font-size: 11px;
-            color: rgba(255, 255, 255, 0.25);
-            text-align: center;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 12px;
-            margin-top: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            font-weight: 400;
-            transition: all 0.3s ease;
-        }
-
-        .key-info.success {
-            color: #00ff88;
-            border-color: rgba(0, 255, 136, 0.08);
-        }
-
-        .key-info.error {
-            color: #ef4444;
-            border-color: rgba(239, 68, 68, 0.08);
-        }
-
-        /* NOTICE - Thông báo quan trọng */
-        .notice-box {
-            background: rgba(0, 0, 0, 0.6);
-            border: 2px solid rgba(239, 68, 68, 0.3);
-            border-radius: 18px;
-            padding: 22px 20px;
-            margin-bottom: 18px;
-            box-shadow: 0 0 60px rgba(239, 68, 68, 0.05);
-            animation: noticeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        @keyframes noticeIn {
-            from { opacity: 0; transform: scale(0.96) translateY(10px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-
-        .notice-box .notice-header {
-            text-align: center;
-            font-size: 16px;
-            font-weight: 800;
-            color: #ef4444;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-bottom: 14px;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .notice-box .notice-line {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 7px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-            font-size: 13px;
-            line-height: 1.5;
-            color: rgba(255, 255, 255, 0.75);
-            font-weight: 400;
-        }
-
-        .notice-box .notice-line:last-child {
+        .result-item:last-child {
             border-bottom: none;
         }
 
-        .notice-box .notice-icon {
-            font-size: 15px;
-            min-width: 26px;
-            text-align: center;
-        }
-
-        .notice-box .notice-text .hl-red {
-            color: #ef4444;
-            font-weight: 600;
-        }
-
-        .notice-box .notice-text .hl-yellow {
-            color: #ffd700;
-            font-weight: 600;
-        }
-
-        .notice-box .notice-footer {
-            text-align: center;
-            margin-top: 14px;
-            padding-top: 12px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        .result-item span {
+            color: rgba(255, 255, 255, 0.4);
             font-size: 13px;
+            letter-spacing: 0.5px;
+            font-weight: 400;
+        }
+
+        .result-item strong {
+            font-size: 18px;
+            font-weight: 800;
+            color: #00d4ff;
+            font-family: 'Inter', sans-serif;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.15);
+        }
+
+        .result-item .vip-value {
+            color: #ffd700;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.15);
+        }
+
+        .key-info-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 16px;
+            padding: 16px;
+            margin: 12px 0 16px 0;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .key-info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .key-info-row:last-child {
+            border-bottom: none;
+        }
+
+        .key-info-row .label {
             color: rgba(255, 255, 255, 0.25);
-            letter-spacing: 6px;
+            font-weight: 300;
+        }
+
+        .key-info-row .value {
+            color: #00d4ff;
             font-weight: 600;
+            font-family: 'Orbitron', monospace;
+            font-size: 12px;
         }
 
-        .notice-box .notice-footer .dot-blink {
+        .key-info-row .value.gold {
+            color: #ffd700;
+        }
+
+        .key-info-row .value.green {
+            color: #00ff88;
+        }
+
+        .key-info-row .value.red {
             color: #ef4444;
-            font-weight: 900;
-            animation: blinkNotice 1s infinite;
         }
 
-        @keyframes blinkNotice {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.1; }
+        #deviceName {
+            color: #fff;
+            font-weight: 700;
+            font-size: 20px;
+            text-align: center;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+            text-shadow: 0 0 30px rgba(255,255,255,0.05);
         }
 
-        .sense-content {
-            display: none;
-        }
-
-        /* Flex Buttons */
         .flex-btns {
             display: flex;
             gap: 8px;
@@ -577,62 +875,292 @@
             font-size: 10px;
             letter-spacing: 1px;
             border-radius: 14px;
+            margin-top: 0;
         }
 
-        /* DPI Link */
-        .dpi-link {
-            display: inline-block;
-            width: 100%;
-            padding: 14px;
-            border-radius: 16px;
-            text-align: center;
-            font-weight: 700;
-            font-size: 13px;
-            color: #000;
-            background: linear-gradient(135deg, #00ff88, #00d4ff);
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-family: 'Inter', sans-serif;
-            letter-spacing: 1px;
-            margin-top: 4px;
-            border: none;
-            box-shadow: 0 4px 20px rgba(0, 255, 136, 0.1);
-        }
-
-        .dpi-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 40px rgba(0, 255, 136, 0.2);
-        }
-
-        .dpi-sub {
-            font-size: 10px;
-            color: rgba(255, 255, 255, 0.15);
-            text-align: center;
-            margin-top: 4px;
-            letter-spacing: 1px;
-            font-weight: 300;
-        }
-
-        /* Contact */
         .contact {
             text-align: center;
             margin-top: 16px;
             padding-top: 14px;
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
         }
 
         .contact p {
             font-size: 12px;
-            color: rgba(255, 255, 255, 0.15);
+            color: rgba(255, 255, 255, 0.06);
             letter-spacing: 1px;
             font-weight: 300;
         }
 
         .contact p .highlight {
+            color: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-logout-key {
+            background: rgba(239, 68, 68, 0.06);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.06);
+            padding: 10px;
+            font-size: 11px;
+            border-radius: 14px;
+            margin-top: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+
+        .btn-logout-key:hover {
+            background: rgba(239, 68, 68, 0.12);
+            border-color: rgba(239, 68, 68, 0.12);
+        }
+
+        /* Admin Slots */
+        .admin-slots-container {
+            margin: 8px 0 12px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 14px;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            display: none;
+        }
+
+        .admin-slots-container.visible {
+            display: block;
+        }
+
+        .admin-slots-title {
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.1);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        .admin-slot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            margin: 3px 0;
+        }
+
+        .admin-slot .slot-label {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.15);
+            letter-spacing: 1px;
+        }
+
+        .admin-slot .slot-status {
+            font-size: 9px;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .admin-slot .slot-status.empty {
+            background: rgba(255, 255, 255, 0.03);
+            color: rgba(255, 255, 255, 0.1);
+        }
+
+        .admin-slot .slot-status.used {
+            background: rgba(0, 255, 136, 0.06);
+            color: #00ff88;
+            border: 1px solid rgba(0, 255, 136, 0.04);
+        }
+
+        /* MUA KEY POPUP */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal-box {
+            background: rgba(20, 25, 40, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 28px;
+            padding: 28px 22px;
+            max-width: 420px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.6);
+        }
+
+        .modal-box::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        .modal-box::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .modal-box::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+        }
+
+        .modal-box .modal-close {
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.1);
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            padding: 4px 8px;
+        }
+
+        .modal-box .modal-close:hover {
             color: rgba(255, 255, 255, 0.3);
         }
 
-        /* Admin Panel */
+        .modal-box .modal-title {
+            font-size: 20px;
+            font-weight: 800;
+            text-align: center;
+            background: linear-gradient(135deg, #ffd700, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            font-family: 'Orbitron', monospace;
+            letter-spacing: 2px;
+        }
+
+        .modal-box .modal-sub {
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.15);
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.3s ease;
+            border-radius: 12px;
+        }
+
+        .price-item:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .price-item .price-info .name {
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .price-item .price-info .desc {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.15);
+            margin-top: 2px;
+        }
+
+        .price-item .price-value {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .price-item .price-value .amount {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffd700;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .price-item .btn-buy {
+            padding: 6px 18px;
+            border-radius: 12px;
+            border: none;
+            background: linear-gradient(135deg, #00ff88, #00d4ff);
+            color: #000;
+            font-weight: 700;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .price-item .btn-buy:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 255, 136, 0.2);
+        }
+
+        .zalo-link-box {
+            text-align: center;
+            margin-top: 16px;
+            padding: 16px;
+            background: rgba(0, 212, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 212, 255, 0.06);
+        }
+
+        .zalo-link-box .zalo-icon {
+            font-size: 40px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .zalo-link-box .zalo-text {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.3);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .zalo-link-box .zalo-text .highlight {
+            color: #00d4ff;
+        }
+
+        .btn-zalo {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 14px;
+            border: none;
+            background: linear-gradient(135deg, #0068ff, #00d4ff);
+            color: #fff;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .btn-zalo:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 30px rgba(0, 104, 255, 0.2);
+        }
+
         #adminKeyList {
             max-height: 300px;
             overflow-y: auto;
@@ -645,7 +1173,7 @@
         }
 
         #adminKeyList::-webkit-scrollbar {
-            width: 4px;
+            width: 3px;
         }
 
         #adminKeyList::-webkit-scrollbar-track {
@@ -669,55 +1197,294 @@
             font-family: 'Inter', sans-serif;
         }
 
-        .badge-vip { background: rgba(255, 215, 0, 0.12); color: #ffd700; }
-        .badge-1m { background: rgba(0, 255, 136, 0.08); color: #00ff88; }
-        .badge-3m { background: rgba(0, 212, 255, 0.08); color: #00d4ff; }
-        .badge-2m { background: rgba(124, 58, 237, 0.08); color: #a855f7; }
-        .badge-1w { background: rgba(245, 158, 11, 0.08); color: #f59e0b; }
-        .badge-1d { background: rgba(239, 68, 68, 0.08); color: #ef4444; }
-        .badge-11h { background: rgba(236, 72, 153, 0.08); color: #ec4899; }
-        .badge-5h { background: rgba(168, 85, 247, 0.08); color: #a855f7; }
-        .badge-2h { background: rgba(251, 146, 60, 0.08); color: #fb923c; }
+        .badge-vip { background: rgba(255, 215, 0, 0.08); color: #ffd700; border: 1px solid rgba(255, 215, 0, 0.04); }
+        .badge-1m { background: rgba(0, 255, 136, 0.06); color: #00ff88; border: 1px solid rgba(0, 255, 136, 0.03); }
+        .badge-3m { background: rgba(0, 212, 255, 0.06); color: #00d4ff; border: 1px solid rgba(0, 212, 255, 0.03); }
+        .badge-2m { background: rgba(124, 58, 237, 0.06); color: #a855f7; border: 1px solid rgba(124, 58, 237, 0.03); }
+        .badge-1w { background: rgba(245, 158, 11, 0.06); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.03); }
+        .badge-1d { background: rgba(239, 68, 68, 0.06); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.03); }
+        .badge-11h { background: rgba(236, 72, 153, 0.06); color: #ec4899; border: 1px solid rgba(236, 72, 153, 0.03); }
+        .badge-5h { background: rgba(168, 85, 247, 0.06); color: #a855f7; border: 1px solid rgba(168, 85, 247, 0.03); }
+        .badge-2h { background: rgba(251, 146, 60, 0.06); color: #fb923c; border: 1px solid rgba(251, 146, 60, 0.03); }
+        .badge-admin { background: rgba(255, 0, 0, 0.08); color: #ef4444; border: 1px solid rgba(255, 0, 0, 0.04); }
 
-        /* Responsive */
+        .dpi-box {
+            background: rgba(0, 255, 136, 0.03);
+            border: 1px solid rgba(0, 255, 136, 0.06);
+            border-radius: 18px;
+            padding: 16px;
+            margin: 8px 0 12px 0;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dpi-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(0, 255, 136, 0.03), transparent 70%);
+            animation: dpiGlow 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes dpiGlow {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+            50% { transform: translate(10%, 10%) scale(1.2); opacity: 1; }
+        }
+
+        .dpi-box .dpi-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .dpi-box .dpi-header .icon {
+            font-size: 24px;
+            animation: iconFloat 2s ease-in-out infinite;
+        }
+
+        .dpi-box .dpi-header .title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #00ff88;
+            font-family: 'Orbitron', monospace;
+            letter-spacing: 1px;
+            text-shadow: 0 0 30px rgba(0, 255, 136, 0.1);
+        }
+
+        .dpi-box .dpi-header .badge-dpi {
+            margin-left: auto;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: rgba(0, 255, 136, 0.08);
+            color: #00ff88;
+            border: 1px solid rgba(0, 255, 136, 0.06);
+        }
+
+        .dpi-box .dpi-desc {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.25);
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+            padding: 8px 12px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            border-left: 2px solid rgba(0, 255, 136, 0.1);
+            margin-bottom: 10px;
+        }
+
+        .dpi-box .dpi-desc .highlight {
+            color: #00ff88;
+        }
+
+        .dpi-box .dpi-download {
+            display: inline-block;
+            width: 100%;
+            padding: 14px;
+            border-radius: 14px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 13px;
+            color: #000;
+            background: linear-gradient(135deg, #00ff88, #00d4ff);
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 1.5px;
+            border: none;
+            box-shadow: 0 4px 30px rgba(0, 255, 136, 0.05);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .dpi-box .dpi-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 40px rgba(0, 255, 136, 0.1);
+        }
+
+        .dpi-box .dpi-sub {
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.06);
+            text-align: center;
+            margin-top: 4px;
+            letter-spacing: 2px;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+
+        .config-vip-box {
+            background: rgba(255, 215, 0, 0.03);
+            border: 1px solid rgba(255, 215, 0, 0.06);
+            border-radius: 18px;
+            padding: 16px;
+            margin: 8px 0 12px 0;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .config-vip-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(255, 215, 0, 0.03), transparent 70%);
+            animation: configGlow 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes configGlow {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+            50% { transform: translate(10%, 10%) scale(1.2); opacity: 1; }
+        }
+
+        .config-vip-box .config-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .config-vip-box .config-header .icon {
+            font-size: 24px;
+            animation: iconFloat 2s ease-in-out infinite;
+        }
+
+        .config-vip-box .config-header .title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffd700;
+            font-family: 'Orbitron', monospace;
+            letter-spacing: 1px;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+        }
+
+        .config-vip-box .config-header .badge-config {
+            margin-left: auto;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: rgba(255, 215, 0, 0.08);
+            color: #ffd700;
+            border: 1px solid rgba(255, 215, 0, 0.06);
+        }
+
+        .config-vip-box .config-desc {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.25);
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+            padding: 8px 12px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            border-left: 2px solid rgba(255, 215, 0, 0.1);
+            margin-bottom: 10px;
+        }
+
+        .config-vip-box .config-desc .highlight {
+            color: #ffd700;
+        }
+
+        .config-vip-box .config-download {
+            display: inline-block;
+            width: 100%;
+            padding: 14px;
+            border-radius: 14px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 13px;
+            color: #000;
+            background: linear-gradient(135deg, #f59e0b, #ffd700);
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 1.5px;
+            border: none;
+            box-shadow: 0 4px 30px rgba(255, 215, 0, 0.05);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .config-vip-box .config-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 40px rgba(255, 215, 0, 0.1);
+        }
+
+        .config-vip-box .config-sub {
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.06);
+            text-align: center;
+            margin-top: 4px;
+            letter-spacing: 2px;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+
+        .dpi-hidden {
+            display: none !important;
+        }
+
         @media (max-width: 400px) {
-            .box {
-                padding: 18px 14px;
-                border-radius: 18px;
+            .card {
+                padding: 20px 14px;
+                border-radius: 24px;
             }
             .app-title {
-                font-size: 18px;
+                font-size: 20px;
+                letter-spacing: 2px;
             }
             .app-icon {
-                font-size: 32px;
+                font-size: 36px;
             }
-            input, button {
+            input, .btn {
                 padding: 14px;
                 font-size: 13px;
-                border-radius: 14px;
             }
             input {
                 padding-left: 42px;
             }
-            .result-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 6px;
-            }
-            .result-item {
-                padding: 10px 12px;
-            }
-            .result-item .value {
-                font-size: 14px;
+            .result-item strong {
+                font-size: 16px;
             }
             .flex-btns button {
-                font-size: 9px;
+                font-size: 8px;
                 padding: 10px 4px;
+                letter-spacing: 0.5px;
             }
             #deviceName {
-                font-size: 17px;
+                font-size: 18px;
+            }
+            #percent {
+                font-size: 24px;
             }
             .notice-box .notice-header {
-                font-size: 14px;
+                font-size: 15px;
                 letter-spacing: 2px;
             }
             .notice-box .notice-line {
@@ -727,179 +1494,451 @@
                 font-size: 14px;
                 padding: 14px;
             }
+            .key-info-row {
+                font-size: 11px;
+            }
+            .key-info-row .value {
+                font-size: 10px;
+            }
+            .effect-toggle-btn {
+                width: 42px;
+                height: 42px;
+                font-size: 16px;
+                bottom: 14px;
+                right: 14px;
+            }
+            .modal-box {
+                padding: 20px 16px;
+            }
+            .price-item {
+                padding: 10px 12px;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .price-item .price-value {
+                width: 100%;
+                justify-content: space-between;
+            }
+            .price-item .btn-buy {
+                padding: 4px 14px;
+                font-size: 11px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Floating Particles -->
-    <div id="particles"></div>
+    <!-- SNOW -->
+    <div class="snow-container" id="snowContainer"></div>
+
+    <!-- ORB -->
+    <div class="bg-effects" id="orbContainer">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+
+    <!-- PARTICLES -->
+    <div class="particles" id="particlesContainer"></div>
+
+    <!-- Nút bật/tắt hiệu ứng -->
+    <div class="effect-toggle-container">
+        <button class="effect-toggle-btn on" id="effectToggle" onclick="toggleAllEffects()">
+            <span class="status-text" id="effectStatusText">ON</span>
+        </button>
+    </div>
+
+    <!-- MODAL MUA KEY -->
+    <div class="modal-overlay" id="buyModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeBuyModal()">✕</button>
+            <div class="modal-title">💎 MUA KEY</div>
+            <div class="modal-sub">Chọn loại key bạn muốn mua</div>
+
+            <div id="priceList">
+                <div class="price-item">
+                    <div class="price-info">
+                        <div class="name">⭐ KEY VĨNH VIỄN</div>
+                        <div class="desc">Không giới hạn thời gian</div>
+                    </div>
+                    <div class="price-value">
+                        <span class="amount">400.000₫</span>
+                        <a href="https://zalo.me/g/r2pzpwib8ukxxuri6wlm" target="_blank" class="btn-buy">MUA</a>
+                    </div>
+                </div>
+                <div class="price-item">
+                    <div class="price-info">
+                        <div class="name">📅 KEY 3 THÁNG</div>
+                        <div class="desc">90 ngày sử dụng</div>
+                    </div>
+                    <div class="price-value">
+                        <span class="amount">200.000₫</span>
+                        <a href="https://zalo.me/g/r2pzpwib8ukxxuri6wlm" target="_blank" class="btn-buy">MUA</a>
+                    </div>
+                </div>
+                <div class="price-item">
+                    <div class="price-info">
+                        <div class="name">📅 KEY 2 THÁNG</div>
+                        <div class="desc">60 ngày sử dụng</div>
+                    </div>
+                    <div class="price-value">
+                        <span class="amount">150.000₫</span>
+                        <a href="https://zalo.me/g/r2pzpwib8ukxxuri6wlm" target="_blank" class="btn-buy">MUA</a>
+                    </div>
+                </div>
+                <div class="price-item">
+                    <div class="price-info">
+                        <div class="name">📅 KEY 1 THÁNG</div>
+                        <div class="desc">30 ngày sử dụng</div>
+                    </div>
+                    <div class="price-value">
+                        <span class="amount">100.000₫</span>
+                        <a href="https://zalo.me/g/r2pzpwib8ukxxuri6wlm" target="_blank" class="btn-buy">MUA</a>
+                    </div>
+                </div>
+                <div class="price-item">
+                    <div class="price-info">
+                        <div class="name">📅 KEY 1 TUẦN</div>
+                        <div class="desc">7 ngày sử dụng</div>
+                    </div>
+                    <div class="price-value">
+                        <span class="amount">60.000₫</span>
+                        <a href="https://zalo.me/g/r2pzpwib8ukxxuri6wlm" target="_blank" class="btn-buy">MUA</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="zalo-link-box">
+                <span class="zalo-icon">💬</span>
+                <div class="zalo-text">
+                    👉 Liên hệ qua <span class="highlight">Zalo</span> để được hỗ trợ mua key<br>
+                    Nhấn nút bên dưới để chat với Admin
+                </div>
+                <a href="https://zalo.me/g/r2pzpwib8ukxxuri6wlm" target="_blank" class="btn-zalo">
+                    📱 CHAT ZALO NGAY
+                </a>
+            </div>
+        </div>
+    </div>
 
     <div class="container">
-        <!-- LOGIN BOX -->
-        <div id="loginBox" class="box animated">
+        <!-- LOGIN -->
+        <div id="loginBox" class="card animated">
             <div class="app-header">
                 <span class="app-icon">🔐</span>
                 <div class="app-title">NP DPI PRO</div>
-                <div class="app-sub"><span class="dot"></span> SYSTEM AUTH <span class="dot"></span></div>
+                <div class="app-sub"><span class="dot"></span> PREMIUM <span class="dot"></span></div>
             </div>
-            <p style="text-align:center;color:rgba(255,255,255,0.25);font-size:13px;margin-bottom:16px;font-weight:300;">Enter your activation key</p>
+            <p class="login-desc">Nhập key kích hoạt để tiếp tục</p>
             <div class="input-group">
                 <span class="icon-left">⌨</span>
-                <input type="text" id="keyInput" placeholder="Enter key here..." autocomplete="off">
+                <input type="text" id="keyInput" placeholder="Nhập key tại đây..." autocomplete="off">
+                <span class="glow-line"></span>
             </div>
-            <button class="btn-primary" onclick="checkKey()">Activate</button>
-            <div class="key-info" id="keyInfo">⚡ Awaiting key input...</div>
+            <button class="btn btn-primary" onclick="checkKey()">KÍCH HOẠT</button>
+            <button class="btn btn-gold" onclick="openBuyModal()">💎 MUA KEY TỰ ĐỘNG</button>
+            <div class="key-info" id="keyInfo">⚡ Nhập key để bắt đầu</div>
         </div>
 
-        <!-- DEVICE BOX -->
-        <div id="deviceBox" class="box animated" style="display: none;">
+        <!-- DEVICE -->
+        <div id="deviceBox" class="card animated" style="display: none;">
             <div class="app-header">
                 <span class="app-icon">📱</span>
-                <div class="app-title">Device Setup</div>
-                <div class="app-sub"><span class="dot"></span> CONFIG TARGET <span class="dot"></span></div>
+                <div class="app-title">THIẾT BỊ</div>
+                <div class="app-sub"><span class="dot"></span> CẤU HÌNH <span class="dot"></span></div>
             </div>
-            <p style="text-align:center;color:rgba(255,255,255,0.25);font-size:13px;margin-bottom:16px;font-weight:300;">Enter your device model</p>
+            <p class="login-desc">Nhập tên kiểu máy iPhone/iPad của bạn</p>
             <div class="input-group">
                 <span class="icon-left">📟</span>
-                <input type="text" id="deviceInput" placeholder="iPhone 13 Pro Max..." autocomplete="off">
+                <input type="text" id="deviceInput" placeholder="Ví dụ: iPhone 13 Pro Max..." autocomplete="off">
+                <span class="glow-line"></span>
             </div>
-            <button class="btn-primary" onclick="saveDevice()">Deploy</button>
+            <button class="btn btn-primary" onclick="saveDevice()">TIẾP TỤC</button>
         </div>
 
-        <!-- SCAN BOX -->
-        <div id="scanBox" class="box animated" style="display: none;">
+        <!-- SCAN -->
+        <div id="scanBox" class="card animated" style="display: none;">
             <div class="app-header">
                 <span class="app-icon">⚡</span>
-                <div class="app-title">Optimizing System</div>
-                <div class="app-sub"><span class="dot"></span> SCAN IN PROGRESS <span class="dot"></span></div>
+                <div class="app-title">ĐANG TỐI ƯU</div>
+                <div class="app-sub"><span class="dot"></span> QUÉT HỆ THỐNG <span class="dot"></span></div>
             </div>
             <div class="progress-container">
                 <div class="progress-bar-track">
+                    <div class="glow"></div>
                     <div id="progressBar"></div>
                 </div>
                 <div id="percent">0%</div>
             </div>
         </div>
 
-        <!-- MAIN APP -->
-        <div id="mainApp" class="box animated" style="display: none;">
-            <!-- NOTICE BOX -->
+        <!-- MAIN -->
+        <div id="mainApp" class="card animated" style="display: none;">
             <div id="noticeContainer">
                 <div class="notice-box">
-                    <div class="notice-header">⚠️ VUI LÒNG ĐỌC VÀ LÀM THEO!</div>
+                    <div class="notice-header">📢 LƯU Ý!</div>
                     <div class="notice-line">
-                        <span class="notice-icon">📌</span>
-                        <span class="notice-text"><span class="hl-red">DPI CHỈ DÙNG ĐƯỢC TRONG KHOẢNG THỜI GIAN KEY CÒN HẠN</span></span>
+                        <span class="notice-icon">⚠️</span>
+                        <span class="notice-text"><span class="hl-red">KHI KEY CỦA BẠN HẾT HẠN</span></span>
                     </div>
                     <div class="notice-line">
-                        <span class="notice-icon">⛔</span>
-                        <span class="notice-text"><span class="hl-red"> VUI LÒNG SAU KHI KEY HẾT HẠN DPI SẼ MẤT TÁC DỤNG</span></span>
+                        <span class="notice-icon">📌</span>
+                        <span class="notice-text"><span class="hl-gold">CONFIG HOẶC DPI SẼ MẤT TÁC DỤNG</span></span>
+                    </div>
+                    <div class="notice-line">
+                        <span class="notice-icon">👉</span>
+                        <span class="notice-text">VẬY NÊN CHÚNG TÔI YÊU CẦU BẠN</span>
                     </div>
                     <div class="notice-line">
                         <span class="notice-icon">🗑️</span>
-                        <span class="notice-text"><span class="hl-yellow">HÃY XOÁ DPI NẾU KHÔNG CHÚNG SẼ RESET LẠI APP</span></span>
+                        <span class="notice-text"><span class="hl-red">HÃY XOÁ CONFIG HOẶC DPI SAU KHI KEY HẾT HẠN</span></span>
                     </div>
                     <div class="notice-line">
-                        <span class="notice-icon">🔄</span>
-                        <span class="notice-text"><span class="hl-red">ĐỒNG THỜI RESET LẠI BỘ NHỚ THIẾT BỊ CỦA BẠN</span></span>
+                        <span class="notice-icon">🙏</span>
+                        <span class="notice-text">CẢM ƠN BẠN ĐÃ ĐỌC!</span>
                     </div>
+
+                    <div class="notice-divider">• • • • • • • •</div>
+
+                    <div class="notice-line">
+                        <span class="notice-icon">💡</span>
+                        <span class="notice-text">Chỉ nên cài <span class="hl-gold">1 trong hai</span> để có tác dụng cao nhất nha</span>
+                    </div>
+
+                    <div class="notice-divider">• • • • • • • •</div>
+
+                    <div class="notice-line">
+                        <span class="notice-icon">📌</span>
+                        <span class="notice-text"><span class="hl-gold">Cách cài:</span><br>• Khởi động lại thiết bị sau khi cài đặt<br>• Không cài thêm file khác trong khi đang cài đặt file bên chúng tôi nếu không file sẽ mất tác dụng</span>
+                    </div>
+
+                    <div class="notice-divider">• • • • • • • •</div>
+
                     <div class="notice-footer">
-                        PRESS 2 SEC &nbsp;<span class="dot-blink">●</span>&nbsp; UNDERSTOOD
+                        💰 Cần mua key có thể mua ở phần <span class="hl-gold">MUA KEY TỰ ĐỘNG</span> hoặc liên hệ <span class="hl-contact">0976457016</span>
                     </div>
-                    <button class="btn-understood" onclick="hideNotice()">I UNDERSTAND</button>
+                    <button class="btn-understood" onclick="hideNotice()">ĐÃ HIỂU</button>
                 </div>
             </div>
 
-            <!-- SENSE CONTENT -->
             <div id="senseContent" class="sense-content">
                 <div class="app-header">
                     <span class="app-icon">🖥️</span>
-                    <div id="deviceName">Target Device</div>
-                    <div class="app-sub"><span class="dot"></span> SYSTEM READY <span class="dot"></span></div>
+                    <div id="deviceName">Thiết bị của bạn</div>
+                    <div class="app-sub"><span class="dot"></span> HỆ THỐNG SẴN SÀNG <span class="dot"></span></div>
                 </div>
 
-                <div id="statusBadge" class="badge-status badge-success">● Online</div>
+                <div id="statusBadge" class="badge-status badge-success">
+                    <span class="dot-status green"></span> Trực tuyến
+                </div>
 
-                <div class="result-grid">
-                    <div class="result-item"><span class="label">SCOPE 360</span> <span class="value" id="look">0</span></div>
-                    <div class="result-item"><span class="label">RED DOT</span> <span class="value" id="red">0</span></div>
-                    <div class="result-item"><span class="label">SCOPE 2X</span> <span class="value" id="scope2">0</span></div>
-                    <div class="result-item"><span class="label">SCOPE 4X</span> <span class="value" id="scope4">0</span></div>
-                    <div class="result-item"><span class="label">AWM SCOPE</span> <span class="value" id="awm">0</span></div>
-                    <div class="result-item"><span class="label">FREE LOOK</span> <span class="value" id="free">0</span></div>
-                    <div class="result-item" style="grid-column: span 2;"><span class="label">FIRE RATE</span> <span class="value" id="fire">0</span>%</div>
+                <div class="key-info-box" id="keyInfoBox">
+                    <div class="key-info-row">
+                        <span class="label">Key:</span>
+                        <span class="value" id="infoKey">---</span>
+                    </div>
+                    <div class="key-info-row">
+                        <span class="label">Thời hạn:</span>
+                        <span class="value gold" id="infoType">---</span>
+                    </div>
+                    <div class="key-info-row">
+                        <span class="label">Slot:</span>
+                        <span class="value" id="infoSlot">0/1 còn trống</span>
+                    </div>
+                    <div class="key-info-row">
+                        <span class="label">Kích hoạt:</span>
+                        <span class="value green" id="infoActivated">---</span>
+                    </div>
+                    <div class="key-info-row">
+                        <span class="label">Còn lại:</span>
+                        <span class="value" id="infoRemain">---</span>
+                    </div>
+                </div>
+
+                <!-- Admin Slots - KHÔNG GIỚI HẠN -->
+                <div class="admin-slots-container" id="adminSlotsContainer">
+                    <div class="admin-slots-title">👑 ADMIN - KHÔNG GIỚI HẠN THIẾT BỊ</div>
+                    <div class="admin-slot" id="adminSlot1">
+                        <span class="slot-label">📱 Thiết bị 1</span>
+                        <span class="slot-status empty">Trống</span>
+                    </div>
+                    <div class="admin-slot" id="adminSlot2">
+                        <span class="slot-label">📱 Thiết bị 2</span>
+                        <span class="slot-status empty">Trống</span>
+                    </div>
+                    <div class="admin-slot" id="adminSlot3">
+                        <span class="slot-label">📱 Thiết bị 3</span>
+                        <span class="slot-status empty">Trống</span>
+                    </div>
+                    <div class="admin-slot" id="adminSlot4">
+                        <span class="slot-label">📱 Thiết bị 4</span>
+                        <span class="slot-status empty">Trống</span>
+                    </div>
+                    <div class="admin-slot" id="adminSlot5">
+                        <span class="slot-label">📱 Thiết bị 5</span>
+                        <span class="slot-status empty">Trống</span>
+                    </div>
+                    <div style="text-align:center;margin-top:6px;font-size:9px;color:rgba(255,255,255,0.06);letter-spacing:1px;">
+                        ⚡ Admin KHÔNG giới hạn thiết bị
+                    </div>
+                </div>
+
+                <div class="result-container">
+                    <div class="result-item"><span>Nhìn Xung Quanh</span> <strong id="look">0</strong></div>
+                    <div class="result-item"><span>Red Dot Sight</span> <strong id="red">0</strong></div>
+                    <div class="result-item"><span>Ống Ngắm 2x</span> <strong id="scope2">0</strong></div>
+                    <div class="result-item"><span>Ống Ngắm 4x</span> <strong id="scope4">0</strong></div>
+                    <div class="result-item"><span>Ống Ngắm AWM</span> <strong id="awm">0</strong></div>
+                    <div class="result-item"><span>Nhìn Linh Hoạt</span> <strong id="free">0</strong></div>
+                    <div class="result-item"><span>Nút Bắn Khuyến Nghị</span> <strong id="fire">0</strong>%</div>
                 </div>
 
                 <!-- DPI VIP -->
-                <a href="https://www.mediafire.com/file/avw3h12ddiobhho/DPIVIP.mobileconfig/file" target="_blank" class="dpi-link">
-                    🎯 Download DPI VIP Config
-                </a>
-                <p class="dpi-sub">⬇️ Fetching remote configuration...</p>
-
-                <div class="flex-btns">
-                    <button class="btn-vip" onclick="showKeyInfo()">🔑 Key Info</button>
-                    <button class="btn-admin" onclick="showAdminPanel()">👑 Admin</button>
-                    <button class="btn-secondary" onclick="newDevice()">🔄 Reset</button>
+                <div id="dpiContainer" class="dpi-box dpi-hidden">
+                    <div class="dpi-header">
+                        <span class="icon">🎯</span>
+                        <span class="title">DPI VIP</span>
+                        <span class="badge-dpi">PREMIUM</span>
+                    </div>
+                    <div class="dpi-desc">
+                        📱 Tối ưu hóa DPI cho <span class="highlight">iPhone/iPad</span><br>
+                        ⚡ Cấu hình <span class="highlight">mượt mà</span>, không delay<br>
+                        🔥 Hỗ trợ <span class="highlight">tất cả thiết bị iOS</span>
+                    </div>
+                    <button class="dpi-download" onclick="downloadDPI()">
+                        📦 TẢI DPI VIP CONFIG
+                    </button>
+                    <p class="dpi-sub">⬇️ iOS 15.0+ compatible</p>
                 </div>
 
+                <!-- CONFIG VIP -->
+                <div id="configContainer" class="config-vip-box dpi-hidden">
+                    <div class="config-header">
+                        <span class="icon">⚡</span>
+                        <span class="title">CONFIG VIP</span>
+                        <span class="badge-config">PREMIUM</span>
+                    </div>
+                    <div class="config-desc">
+                        📱 Cấu hình <span class="highlight">tối ưu</span> cho iOS<br>
+                        ⚡ Tăng hiệu suất <span class="highlight">không lag</span><br>
+                        🔥 Hỗ trợ <span class="highlight">mọi thiết bị</span>
+                    </div>
+                    <a href="https://www.mediafire.com/file/tsmqwmwu3clarhk/CONFIG+3.0%F0%9F%8E%AD.mobileconfig/file" target="_blank" class="config-download">
+                        📦 TẢI CONFIG VIP
+                    </a>
+                    <p class="config-sub">⬇️ iOS 15.0+ compatible</p>
+                </div>
+
+                <div class="flex-btns">
+                    <button class="btn btn-vip" onclick="showKeyInfo()">🔑 KEY INFO</button>
+                    <button class="btn btn-admin" onclick="showAdminPanel()">👑 ADMIN</button>
+                    <button class="btn btn-secondary" onclick="newDevice()">🔄 ĐỔI</button>
+                </div>
+
+                <button class="btn-logout-key" onclick="logoutKey()">🚪 ĐĂNG XUẤT KEY</button>
+
                 <div class="contact">
-                    <p>📡 <span class="highlight">Contact Admin:</span> 0976457016</p>
+                    <p>📡 <span class="highlight">Liên hệ Admin:</span> 0976457016</p>
                 </div>
             </div>
         </div>
 
-        <!-- ADMIN PANEL -->
-        <div id="adminPanel" class="box animated" style="display: none;">
+        <!-- ADMIN -->
+        <div id="adminPanel" class="card animated" style="display: none;">
             <div class="app-header">
                 <span class="app-icon">👑</span>
-                <div class="app-title">Admin Panel</div>
-                <div class="app-sub"><span class="dot"></span> KEY DATABASE <span class="dot"></span></div>
+                <div class="app-title">QUẢN LÝ KEY</div>
+                <div class="app-sub"><span class="dot"></span> CƠ SỞ DỮ LIỆU <span class="dot"></span></div>
             </div>
             <div id="adminKeyList"></div>
-            <button class="btn-secondary" onclick="closeAdminPanel()">Close</button>
+            <button class="btn btn-secondary" onclick="closeAdminPanel()">ĐÓNG</button>
         </div>
     </div>
 
     <script>
         // ============================================================
+        // TOGGLE EFFECTS
+        // ============================================================
+        let effectsEnabled = true;
+
+        function toggleAllEffects() {
+            const btn = document.getElementById('effectToggle');
+            const statusText = document.getElementById('effectStatusText');
+            
+            effectsEnabled = !effectsEnabled;
+            
+            if (effectsEnabled) {
+                document.body.classList.remove('snow-hidden');
+                document.body.classList.remove('orb-hidden');
+                document.body.classList.remove('particle-hidden');
+                btn.classList.remove('off');
+                btn.classList.add('on');
+                statusText.textContent = 'ON';
+            } else {
+                document.body.classList.add('snow-hidden');
+                document.body.classList.add('orb-hidden');
+                document.body.classList.add('particle-hidden');
+                btn.classList.remove('on');
+                btn.classList.add('off');
+                statusText.textContent = 'OFF';
+            }
+        }
+
+        // ============================================================
+        // SNOW EFFECT
+        // ============================================================
+        function createSnow() {
+            const container = document.getElementById('snowContainer');
+            const flakes = ['❄', '✦', '❅', '❆'];
+            for (let i = 0; i < 40; i++) {
+                const el = document.createElement('div');
+                el.className = 'snowflake';
+                el.textContent = flakes[Math.floor(Math.random() * flakes.length)];
+                el.style.left = Math.random() * 100 + '%';
+                el.style.fontSize = (8 + Math.random() * 14) + 'px';
+                el.style.animationDuration = (8 + Math.random() * 12) + 's';
+                el.style.animationDelay = (Math.random() * 10) + 's';
+                el.style.opacity = 0.3 + Math.random() * 0.5;
+                container.appendChild(el);
+            }
+        }
+        createSnow();
+
+        // ============================================================
         // PARTICLES
         // ============================================================
         function createParticles() {
-            const container = document.getElementById('particles');
+            const container = document.getElementById('particlesContainer');
             for (let i = 0; i < 15; i++) {
                 const el = document.createElement('div');
                 el.className = 'particle';
-                const size = 2 + Math.random() * 6;
+                const size = 2 + Math.random() * 4;
                 el.style.width = size + 'px';
                 el.style.height = size + 'px';
                 el.style.left = Math.random() * 100 + '%';
-                el.style.animationDuration = (20 + Math.random() * 30) + 's';
-                el.style.animationDelay = (Math.random() * 20) + 's';
+                el.style.animationDuration = (15 + Math.random() * 25) + 's';
+                el.style.animationDelay = (Math.random() * 15) + 's';
+                el.style.opacity = 0.05 + Math.random() * 0.15;
                 container.appendChild(el);
             }
         }
         createParticles();
 
         // ============================================================
-        // NOTICE
+        // ADMIN KEY
         // ============================================================
-        function hideNotice() {
-            document.getElementById('noticeContainer').style.display = 'none';
-            document.getElementById('senseContent').style.display = 'block';
-            localStorage.setItem('phamhieu_notice_seen', 'true');
-        }
+        const ADMIN_KEY = "NPDPIVIPLIVE";
+        let adminDevices = [];
 
         // ============================================================
-        // DATABASE KEY - THÊM KEY MỚI
+        // DATABASE KEY
         // ============================================================
-        // VIP KEYS (10)
         const VIP_KEYS = [
             "VIP-9F3A-7B2C", "VIP-4E8D-1F5A", "VIP-7C1B-3D9E", "VIP-2A4F-8C6D",
             "VIP-5B3E-9D1F", "VIP-8C7D-1E2F", "VIP-3D9E-5F1A", "VIP-6B2C-8E4F",
             "VIP-9A1D-4F7E", "VIP-2C5B-7E8A"
         ];
 
-        // 30 KEY 1 THÁNG
         const KEY_1M = [
             "1M-A1B2-C3D4", "1M-E5F6-G7H8", "1M-I9J0-K1L2", "1M-M3N4-O5P6",
             "1M-Q7R8-S9T0", "1M-U1V2-W3X4", "1M-Y5Z6-A7B8", "1M-C9D0-E1F2",
@@ -911,7 +1950,6 @@
             "1M-I3J4-K5L6", "1M-M7N8-O9P0"
         ];
 
-        // 30 KEY 3 THÁNG
         const KEY_3M = [
             "3M-A1B2-C3D4", "3M-E5F6-G7H8", "3M-I9J0-K1L2", "3M-M3N4-O5P6",
             "3M-Q7R8-S9T0", "3M-U1V2-W3X4", "3M-Y5Z6-A7B8", "3M-C9D0-E1F2",
@@ -923,7 +1961,6 @@
             "3M-I3J4-K5L6", "3M-M7N8-O9P0"
         ];
 
-        // 30 KEY 2 THÁNG
         const KEY_2M = [
             "2M-A1B2-C3D4", "2M-E5F6-G7H8", "2M-I9J0-K1L2", "2M-M3N4-O5P6",
             "2M-Q7R8-S9T0", "2M-U1V2-W3X4", "2M-Y5Z6-A7B8", "2M-C9D0-E1F2",
@@ -935,7 +1972,6 @@
             "2M-I3J4-K5L6", "2M-M7N8-O9P0"
         ];
 
-        // 30 KEY 1 TUẦN
         const KEY_1W = [
             "1W-A1B2-C3D4", "1W-E5F6-G7H8", "1W-I9J0-K1L2", "1W-M3N4-O5P6",
             "1W-Q7R8-S9T0", "1W-U1V2-W3X4", "1W-Y5Z6-A7B8", "1W-C9D0-E1F2",
@@ -947,7 +1983,6 @@
             "1W-I3J4-K5L6", "1W-M7N8-O9P0"
         ];
 
-        // 30 KEY 1 NGÀY
         const KEY_1D = [
             "1D-A1B2-C3D4", "1D-E5F6-G7H8", "1D-I9J0-K1L2", "1D-M3N4-O5P6",
             "1D-Q7R8-S9T0", "1D-U1V2-W3X4", "1D-Y5Z6-A7B8", "1D-C9D0-E1F2",
@@ -959,32 +1994,38 @@
             "1D-I3J4-K5L6", "1D-M7N8-O9P0"
         ];
 
-        // ====== KEY MỚI ======
-        // 30 KEY 11 GIỜ
-        const KEY_11H = Array.from({length: 30}, (_, i) => {
-            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-            let id = '';
-            for (let j = 0; j < 8; j++) id += chars[Math.floor(Math.random() * chars.length)];
-            return `11H-${id.slice(0,4)}-${id.slice(4,8)}`;
-        });
+        const KEY_11H = [
+            "11H-A1B2-C3D4", "11H-E5F6-G7H8", "11H-I9J0-K1L2", "11H-M3N4-O5P6",
+            "11H-Q7R8-S9T0", "11H-U1V2-W3X4", "11H-Y5Z6-A7B8", "11H-C9D0-E1F2",
+            "11H-G3H4-I5J6", "11H-K7L8-M9N0", "11H-O1P2-Q3R4", "11H-S5T6-U7V8",
+            "11H-W9X0-Y1Z2", "11H-A3B4-C5D6", "11H-E7F8-G9H0", "11H-I1J2-K3L4",
+            "11H-M5N6-O7P8", "11H-Q9R0-S1T2", "11H-U3V4-W5X6", "11H-Y7Z8-A9B0",
+            "11H-C1D2-E3F4", "11H-G5H6-I7J8", "11H-K9L0-M1N2", "11H-O3P4-Q5R6",
+            "11H-S7T8-U9V0", "11H-W1X2-Y3Z4", "11H-A5B6-C7D8", "11H-E9F0-G1H2",
+            "11H-I3J4-K5L6", "11H-M7N8-O9P0"
+        ];
 
-        // 30 KEY 5 GIỜ
-        const KEY_5H = Array.from({length: 30}, (_, i) => {
-            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-            let id = '';
-            for (let j = 0; j < 8; j++) id += chars[Math.floor(Math.random() * chars.length)];
-            return `5H-${id.slice(0,4)}-${id.slice(4,8)}`;
-        });
+        const KEY_5H = [
+            "5H-A1B2-C3D4", "5H-E5F6-G7H8", "5H-I9J0-K1L2", "5H-M3N4-O5P6",
+            "5H-Q7R8-S9T0", "5H-U1V2-W3X4", "5H-Y5Z6-A7B8", "5H-C9D0-E1F2",
+            "5H-G3H4-I5J6", "5H-K7L8-M9N0", "5H-O1P2-Q3R4", "5H-S5T6-U7V8",
+            "5H-W9X0-Y1Z2", "5H-A3B4-C5D6", "5H-E7F8-G9H0", "5H-I1J2-K3L4",
+            "5H-M5N6-O7P8", "5H-Q9R0-S1T2", "5H-U3V4-W5X6", "5H-Y7Z8-A9B0",
+            "5H-C1D2-E3F4", "5H-G5H6-I7J8", "5H-K9L0-M1N2", "5H-O3P4-Q5R6",
+            "5H-S7T8-U9V0", "5H-W1X2-Y3Z4", "5H-A5B6-C7D8", "5H-E9F0-G1H2",
+            "5H-I3J4-K5L6", "5H-M7N8-O9P0"
+        ];
 
-        // 30 KEY 2 GIỜ
-        const KEY_2H = Array.from({length: 30}, (_, i) => {
-            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-            let id = '';
-            for (let j = 0; j < 8; j++) id += chars[Math.floor(Math.random() * chars.length)];
-            return `2H-${id.slice(0,4)}-${id.slice(4,8)}`;
-        });
-
-        const ADMIN_KEY = "NPDPIVIPLIVE";
+        const KEY_2H = [
+            "2H-A1B2-C3D4", "2H-E5F6-G7H8", "2H-I9J0-K1L2", "2H-M3N4-O5P6",
+            "2H-Q7R8-S9T0", "2H-U1V2-W3X4", "2H-Y5Z6-A7B8", "2H-C9D0-E1F2",
+            "2H-G3H4-I5J6", "2H-K7L8-M9N0", "2H-O1P2-Q3R4", "2H-S5T6-U7V8",
+            "2H-W9X0-Y1Z2", "2H-A3B4-C5D6", "2H-E7F8-G9H0", "2H-I1J2-K3L4",
+            "2H-M5N6-O7P8", "2H-Q9R0-S1T2", "2H-U3V4-W5X6", "2H-Y7Z8-A9B0",
+            "2H-C1D2-E3F4", "2H-G5H6-I7J8", "2H-K9L0-M1N2", "2H-O3P4-Q5R6",
+            "2H-S7T8-U9V0", "2H-W1X2-Y3Z4", "2H-A5B6-C7D8", "2H-E9F0-G1H2",
+            "2H-I3J4-K5L6", "2H-M7N8-O9P0"
+        ];
 
         // ============================================================
         // KEY DATABASE
@@ -993,67 +2034,208 @@
 
         function getExpiryDate(activatedAt, type) {
             const date = new Date(activatedAt);
-            if (type === 'vip') return null;
-            const hours = { '11h': 11, '5h': 5, '2h': 2 };
-            if (type === '11h') date.setHours(date.getHours() + 11);
-            else if (type === '5h') date.setHours(date.getHours() + 5);
-            else if (type === '2h') date.setHours(date.getHours() + 2);
-            else if (type === '1d') date.setDate(date.getDate() + 1);
-            else if (type === '1w') date.setDate(date.getDate() + 7);
-            else if (type === '1m') date.setDate(date.getDate() + 30);
-            else if (type === '2m') date.setDate(date.getDate() + 60);
-            else if (type === '3m') date.setDate(date.getDate() + 90);
+            if (type === 'vip' || type === 'admin') return null;
+
+            const durationMap = {
+                '11h': 11 * 60 * 60 * 1000,
+                '5h': 5 * 60 * 60 * 1000,
+                '2h': 2 * 60 * 60 * 1000,
+                '1d': 24 * 60 * 60 * 1000,
+                '1w': 7 * 24 * 60 * 60 * 1000,
+                '1m': 30 * 24 * 60 * 60 * 1000,
+                '2m': 60 * 24 * 60 * 60 * 1000,
+                '3m': 90 * 24 * 60 * 60 * 1000
+            };
+
+            const duration = durationMap[type];
+            if (!duration) return null;
+
+            date.setTime(date.getTime() + duration);
             return date.toISOString();
         }
 
+        function isPremiumType(type) {
+            const premiumTypes = ['vip', 'admin', '1m', '3m', '2m'];
+            return premiumTypes.includes(type);
+        }
+
         function initKeyDB() {
-            VIP_KEYS.forEach(k => { keyDB[k] = { type: 'vip', status: 'inactive', activatedAt: null, expires: null }; });
-            KEY_1M.forEach(k => { keyDB[k] = { type: '1m', status: 'inactive', activatedAt: null, expires: null }; });
-            KEY_3M.forEach(k => { keyDB[k] = { type: '3m', status: 'inactive', activatedAt: null, expires: null }; });
-            KEY_2M.forEach(k => { keyDB[k] = { type: '2m', status: 'inactive', activatedAt: null, expires: null }; });
-            KEY_1W.forEach(k => { keyDB[k] = { type: '1w', status: 'inactive', activatedAt: null, expires: null }; });
-            KEY_1D.forEach(k => { keyDB[k] = { type: '1d', status: 'inactive', activatedAt: null, expires: null }; });
-            KEY_11H.forEach(k => { keyDB[k] = { type: '11h', status: 'inactive', activatedAt: null, expires: null }; });
-            KEY_5H.forEach(k => { keyDB[k] = { type: '5h', status: 'inactive', activatedAt: null, expires: null }; });
-            KEY_2H.forEach(k => { keyDB[k] = { type: '2h', status: 'inactive', activatedAt: null, expires: null }; });
+            keyDB[ADMIN_KEY] = { type: 'admin', status: 'active', activatedAt: new Date().toISOString(), expires: null, devices: [] };
+            VIP_KEYS.forEach(k => { keyDB[k] = { type: 'vip', status: 'inactive', activatedAt: null, expires: null, devices: [] }; });
+            KEY_1M.forEach(k => { keyDB[k] = { type: '1m', status: 'inactive', activatedAt: null, expires: null, devices: [] }; });
+            KEY_3M.forEach(k => { keyDB[k] = { type: '3m', status: 'inactive', activatedAt: null, expires: null, devices: [] }; });
+            KEY_2M.forEach(k => { keyDB[k] = { type: '2m', status: 'inactive', activatedAt: null, expires: null, devices: [] }; });
+            KEY_1W.forEach(k => { keyDB[k] = { type: '1w', status: 'inactive', activatedAt: null, expires: null, devices: [] }; });
+            KEY_1D.forEach(k => { keyDB[k] = { type: '1d', status: 'inactive', activatedAt: null, expires: null, devices: [] }; });
+            KEY_11H.forEach(k => { keyDB[k] = { type: '11h', status: 'inactive', activatedAt: null, expires: null, devices: [] }; });
+            KEY_5H.forEach(k => { keyDB[k] = { type: '5h', status: 'inactive', activatedAt: null, expires: null, devices: [] }; });
+            KEY_2H.forEach(k => { keyDB[k] = { type: '2h', status: 'inactive', activatedAt: null, expires: null, devices: [] }; });
+        }
+
+        function getDeviceId() {
+            let deviceId = localStorage.getItem('deviceId');
+            if (!deviceId) {
+                deviceId = 'DEV-' + Date.now().toString(36) + '-' + Math.random().toString(36).substring(2, 6);
+                localStorage.setItem('deviceId', deviceId);
+            }
+            return deviceId;
         }
 
         // ============================================================
-        // CHECK KEY
+        // HÀM ẨN THÔNG BÁO
+        // ============================================================
+        function hideNotice() {
+            document.getElementById('noticeContainer').style.display = 'none';
+            document.getElementById('senseContent').style.display = 'block';
+            localStorage.setItem('phamhieu_notice_seen', 'true');
+        }
+
+        // ============================================================
+        // UPDATE ADMIN SLOTS - KHÔNG GIỚI HẠN
+        // ============================================================
+        function updateAdminSlots() {
+            const saved = localStorage.getItem('adminDevices');
+            if (saved) {
+                adminDevices = JSON.parse(saved);
+            }
+
+            // Hiển thị tối đa 5 slot, nhưng admin có thể có nhiều hơn
+            const slots = [
+                document.getElementById('adminSlot1'),
+                document.getElementById('adminSlot2'),
+                document.getElementById('adminSlot3'),
+                document.getElementById('adminSlot4'),
+                document.getElementById('adminSlot5')
+            ];
+
+            // Nếu có nhiều hơn 5 thiết bị, hiển thị thêm
+            const totalDevices = adminDevices.filter(d => d).length;
+            const displayCount = Math.min(totalDevices, 5);
+
+            slots.forEach((slot, index) => {
+                const statusEl = slot.querySelector('.slot-status');
+                if (adminDevices[index]) {
+                    statusEl.textContent = '📱 ' + adminDevices[index].substring(0, 12) + '...';
+                    statusEl.className = 'slot-status used';
+                    slot.style.display = 'flex';
+                } else if (index < displayCount) {
+                    statusEl.textContent = 'Trống';
+                    statusEl.className = 'slot-status empty';
+                    slot.style.display = 'flex';
+                } else {
+                    slot.style.display = 'none';
+                }
+            });
+
+            // Nếu có nhiều hơn 5 thiết bị, hiển thị thông báo
+            const container = document.querySelector('.admin-slots-container');
+            let extraMsg = container.querySelector('.extra-devices-msg');
+            if (totalDevices > 5) {
+                if (!extraMsg) {
+                    extraMsg = document.createElement('div');
+                    extraMsg.className = 'extra-devices-msg';
+                    extraMsg.style.cssText = 'text-align:center;margin-top:6px;font-size:9px;color:rgba(255,215,0,0.15);letter-spacing:1px;';
+                    container.appendChild(extraMsg);
+                }
+                extraMsg.textContent = `+ ${totalDevices - 5} thiết bị khác (Admin không giới hạn)`;
+                extraMsg.style.display = 'block';
+            } else if (extraMsg) {
+                extraMsg.style.display = 'none';
+            }
+        }
+
+        function addAdminDevice(deviceId) {
+            if (adminDevices.includes(deviceId)) return true;
+            adminDevices.push(deviceId);
+            localStorage.setItem('adminDevices', JSON.stringify(adminDevices));
+            updateAdminSlots();
+            return true;
+        }
+
+        // ============================================================
+        // KIỂM TRA VÀ GIA HẠN KEY SAU 5 NGÀY
+        // ============================================================
+        function checkAndRenewKeys() {
+            const now = new Date();
+            let renewed = 0;
+            
+            Object.keys(keyDB).forEach(key => {
+                const data = keyDB[key];
+                if (data.type !== 'admin' && data.type !== 'vip' && data.expires) {
+                    const expireDate = new Date(data.expires);
+                    if (now > expireDate) {
+                        const daysSinceExpire = Math.floor((now - expireDate) / (24 * 60 * 60 * 1000));
+                        if (daysSinceExpire >= 5) {
+                            const newExpiry = new Date(now);
+                            newExpiry.setDate(newExpiry.getDate() + 5);
+                            data.expires = newExpiry.toISOString();
+                            data.status = 'active';
+                            renewed++;
+                            console.log(`🔄 Đã gia hạn key ${key} thêm 5 ngày`);
+                        } else {
+                            data.status = 'expired';
+                        }
+                    }
+                }
+            });
+            
+            if (renewed > 0) {
+                console.log(`✅ Đã gia hạn ${renewed} key sau 5 ngày hết hạn`);
+            }
+            return renewed;
+        }
+
+        // ============================================================
+        // HÀM KIỂM TRA KEY - ADMIN KHÔNG GIỚI HẠN
         // ============================================================
         function checkKey() {
             const key = document.getElementById("keyInput").value.trim().toUpperCase();
             const infoEl = document.getElementById("keyInfo");
 
-            if (key === ADMIN_KEY) {
-                document.getElementById("loginBox").style.display = "none";
-                document.getElementById("deviceBox").style.display = "block";
-                infoEl.className = 'key-info success';
-                infoEl.innerHTML = '✅ Admin access granted';
-                return;
-            }
+            checkAndRenewKeys();
 
             if (!keyDB[key]) {
                 infoEl.className = 'key-info error';
-                infoEl.innerHTML = '❌ Invalid key';
+                infoEl.innerHTML = '❌ Key không hợp lệ! Vui lòng thử lại.';
                 return;
             }
 
             const data = keyDB[key];
             const now = new Date();
+            const deviceId = getDeviceId();
 
-            if (data.type !== 'vip' && data.expires) {
+            if (data.type !== 'admin' && data.type !== 'vip' && data.expires) {
                 const expireDate = new Date(data.expires);
                 if (now > expireDate) {
                     data.status = 'expired';
-                    const hoursOver = Math.floor((now - expireDate) / (60*60*1000));
+                    const diffMs = now - expireDate;
+                    const daysOver = Math.floor(diffMs / (24 * 60 * 60 * 1000));
                     infoEl.className = 'key-info error';
-                    infoEl.innerHTML = `⛔ Key expired (${hoursOver}h ago) // Contact admin`;
+                    infoEl.innerHTML = `⛔ Key đã hết hạn (quá hạn ${daysOver} ngày) // Sẽ tự động gia hạn sau ${5 - daysOver} ngày`;
                     return;
                 }
             }
 
-            if (!data.activatedAt) {
+            // ADMIN - KHÔNG GIỚI HẠN THIẾT BỊ
+            if (data.type === 'admin') {
+                const saved = localStorage.getItem('adminDevices');
+                if (saved) {
+                    adminDevices = JSON.parse(saved);
+                }
+                if (!adminDevices.includes(deviceId)) {
+                    addAdminDevice(deviceId);
+                }
+                updateAdminSlots();
+            }
+
+            // CÁC KEY KHÁC - CHỈ 1 THIẾT BỊ
+            if (data.type !== 'admin' && data.devices.length > 0 && !data.devices.includes(deviceId)) {
+                infoEl.className = 'key-info error';
+                infoEl.innerHTML = `⛔ Key đã được đăng nhập trên thiết bị khác! Chỉ 1 thiết bị duy nhất.`;
+                return;
+            }
+
+            if (data.type !== 'admin' && !data.activatedAt) {
                 const activatedTime = now.toISOString();
                 data.activatedAt = activatedTime;
                 data.status = 'active';
@@ -1061,7 +2243,7 @@
                     data.expires = getExpiryDate(activatedTime, data.type);
                 }
                 infoEl.className = 'key-info success';
-                infoEl.innerHTML = `✅ Activated [${getKeyTypeLabel(data.type)}]`;
+                infoEl.innerHTML = `✅ Kích hoạt thành công! [${getKeyTypeLabel(data.type)}] - Bắt đầu tính thời gian`;
                 document.getElementById("loginBox").style.display = "none";
                 document.getElementById("deviceBox").style.display = "block";
                 return;
@@ -1069,54 +2251,88 @@
 
             data.status = 'active';
             infoEl.className = 'key-info success';
-            infoEl.innerHTML = `✅ Valid key [${getKeyTypeLabel(data.type)}]`;
+            const timeLeft = data.type === 'admin' ? '∞' : getTimeLeft(key);
+            infoEl.innerHTML = `✅ Key hợp lệ [${getKeyTypeLabel(data.type)}] - Còn ${timeLeft}`;
             document.getElementById("loginBox").style.display = "none";
             document.getElementById("deviceBox").style.display = "block";
         }
 
         function getKeyTypeLabel(type) {
-            const map = { 
-                'vip': 'VIP', '1m': '30D', '3m': '90D', '2m': '60D', 
-                '1w': '7D', '1d': '1D', '11h': '11H', '5h': '5H', '2h': '2H' 
+            const map = {
+                'admin': 'ADMIN',
+                'vip': 'VIP',
+                '1m': '1 Tháng',
+                '3m': '3 Tháng',
+                '2m': '2 Tháng',
+                '1w': '1 Tuần',
+                '1d': '1 Ngày',
+                '11h': '11 Giờ',
+                '5h': '5 Giờ',
+                '2h': '2 Giờ'
             };
             return map[type] || type;
         }
 
         function getKeyBadge(type) {
-            const map = { 
-                'vip': 'badge-vip', '1m': 'badge-1m', '3m': 'badge-3m', 
-                '2m': 'badge-2m', '1w': 'badge-1w', '1d': 'badge-1d',
-                '11h': 'badge-11h', '5h': 'badge-5h', '2h': 'badge-2h'
+            const map = {
+                'admin': 'badge-admin',
+                'vip': 'badge-vip',
+                '1m': 'badge-1m',
+                '3m': 'badge-3m',
+                '2m': 'badge-2m',
+                '1w': 'badge-1w',
+                '1d': 'badge-1d',
+                '11h': 'badge-11h',
+                '5h': 'badge-5h',
+                '2h': 'badge-2h'
             };
             return map[type] || '';
         }
 
-        function getKeyTypeFull(type) {
-            const map = { 
-                'vip': '⭐ Vĩnh Viễn', '1m': '📅 1 Tháng', '3m': '📅 3 Tháng', 
-                '2m': '📅 2 Tháng', '1w': '📅 1 Tuần', '1d': '📅 1 Ngày',
-                '11h': '⏰ 11 Giờ', '5h': '⏰ 5 Giờ', '2h': '⏰ 2 Giờ'
-            };
-            return map[type] || type;
+        function getTimeLeft(key) {
+            const data = keyDB[key];
+            if (!data || data.type === 'admin' || data.type === 'vip' || !data.expires) return '∞';
+            const now = new Date();
+            const expire = new Date(data.expires);
+            if (now > expire) return '0s';
+
+            const diffMs = expire - now;
+            const days = Math.floor(diffMs / (24 * 60 * 60 * 1000));
+            const hours = Math.floor((diffMs % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
+            const mins = Math.floor((diffMs % (60 * 60 * 1000)) / (60 * 1000));
+            const secs = Math.floor((diffMs % (60 * 1000)) / 1000);
+
+            if (days > 0) return `${days}ng ${hours}h`;
+            if (hours > 0) return `${hours}h ${mins}p`;
+            if (mins > 0) return `${mins}p ${secs}s`;
+            return `${secs}s`;
         }
 
         // ============================================================
-        // OTHER FUNCTIONS
+        // HÀM LƯU THIẾT BỊ
         // ============================================================
-        function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
-
         function saveDevice() {
             const name = document.getElementById("deviceInput").value.trim();
             if (!name) {
-                alert('⚠️ Please enter device name');
+                alert("⚠️ Vui lòng nhập tên máy!");
                 return;
             }
+
+            const key = document.getElementById("keyInput").value.trim().toUpperCase();
+            const deviceId = getDeviceId();
+
+            localStorage.setItem('deviceName', name);
+
+            if (keyDB[key] && !keyDB[key].devices.includes(deviceId)) {
+                keyDB[key].devices.push(deviceId);
+            }
+
             document.getElementById("deviceBox").style.display = "none";
             document.getElementById("scanBox").style.display = "block";
 
             let p = 0;
             const timer = setInterval(() => {
-                p += Math.random() * 2.5 + 1;
+                p += Math.random() * 2 + 1;
                 if (p > 100) p = 100;
                 document.getElementById("progressBar").style.width = p + "%";
                 document.getElementById("percent").innerText = Math.floor(p) + "%";
@@ -1127,7 +2343,7 @@
                         showResult(name);
                     }, 300);
                 }
-            }, 35);
+            }, 40);
         }
 
         function showResult(name) {
@@ -1146,7 +2362,7 @@
             }
 
             const s = data[name];
-            document.getElementById("deviceName").innerHTML = name;
+            document.getElementById("deviceName").textContent = name;
             document.getElementById("look").innerText = s.look;
             document.getElementById("red").innerText = s.red;
             document.getElementById("scope2").innerText = s.scope2;
@@ -1156,52 +2372,101 @@
             document.getElementById("fire").innerText = s.fire;
 
             const key = document.getElementById("keyInput").value.trim().toUpperCase();
+            const dataKey = keyDB[key];
             const badge = document.getElementById("statusBadge");
-            if (keyDB[key]) {
-                const dataKey = keyDB[key];
-                if (dataKey.type !== 'vip' && dataKey.expires) {
-                    const now = new Date();
-                    const expireDate = new Date(dataKey.expires);
-                    if (now > expireDate) {
-                        badge.className = 'badge-status badge-expired';
-                        badge.innerHTML = '● Key Expired';
-                        return;
-                    }
-                }
-                if (dataKey.type === 'vip') {
-                    badge.className = 'badge-status badge-vip';
-                    badge.innerHTML = '⭐ VIP Access';
+            const slotsContainer = document.getElementById('adminSlotsContainer');
+
+            if (dataKey.type === 'admin') {
+                slotsContainer.classList.add('visible');
+                updateAdminSlots();
+            } else {
+                slotsContainer.classList.remove('visible');
+            }
+
+            document.getElementById('infoKey').textContent = key;
+            document.getElementById('infoType').textContent = getKeyTypeLabel(dataKey.type);
+            
+            const deviceCount = dataKey.devices ? dataKey.devices.length : 0;
+            document.getElementById('infoSlot').textContent = `${deviceCount}/1 còn trống`;
+            
+            if (dataKey.activatedAt) {
+                const activated = new Date(dataKey.activatedAt);
+                document.getElementById('infoActivated').textContent = 
+                    activated.toLocaleTimeString() + ' ' + activated.toLocaleDateString();
+            } else {
+                document.getElementById('infoActivated').textContent = '---';
+            }
+
+            if (dataKey.type === 'admin') {
+                document.getElementById('infoRemain').textContent = '∞ (Admin)';
+                document.getElementById('infoRemain').className = 'value gold';
+            } else if (dataKey.type === 'vip') {
+                document.getElementById('infoRemain').textContent = '∞ (Vĩnh viễn)';
+                document.getElementById('infoRemain').className = 'value gold';
+            } else if (dataKey.expires) {
+                const now = new Date();
+                const expire = new Date(dataKey.expires);
+                if (now > expire) {
+                    document.getElementById('infoRemain').textContent = 'Đã hết hạn';
+                    document.getElementById('infoRemain').className = 'value red';
                 } else {
-                    const timeLeft = getTimeLeft(key);
-                    badge.className = 'badge-status badge-success';
-                    badge.innerHTML = `● Online · ${timeLeft}`;
+                    document.getElementById('infoRemain').textContent = getTimeLeft(key);
+                    document.getElementById('infoRemain').className = 'value green';
                 }
             }
 
+            if (dataKey.type !== 'admin' && dataKey.type !== 'vip' && dataKey.expires) {
+                const now = new Date();
+                const expireDate = new Date(dataKey.expires);
+                if (now > expireDate) {
+                    badge.className = 'badge-status badge-expired';
+                    badge.innerHTML = '<span class="dot-status red"></span> KEY ĐÃ HẾT HẠN';
+                    document.getElementById('dpiContainer').classList.add('dpi-hidden');
+                    document.getElementById('configContainer').classList.add('dpi-hidden');
+                    return;
+                }
+            }
+
+            const deviceId = getDeviceId();
+            if (dataKey.type !== 'admin' && !dataKey.devices.includes(deviceId)) {
+                badge.className = 'badge-status badge-device-locked';
+                badge.innerHTML = '<span class="dot-status orange"></span> ĐÃ KHÓA THIẾT BỊ';
+                document.getElementById('dpiContainer').classList.add('dpi-hidden');
+                document.getElementById('configContainer').classList.add('dpi-hidden');
+                return;
+            }
+
+            if (isPremiumType(dataKey.type)) {
+                document.getElementById('dpiContainer').classList.remove('dpi-hidden');
+                document.getElementById('configContainer').classList.remove('dpi-hidden');
+            } else {
+                document.getElementById('dpiContainer').classList.add('dpi-hidden');
+                document.getElementById('configContainer').classList.add('dpi-hidden');
+            }
+
+            if (dataKey.type === 'admin') {
+                badge.className = 'badge-status badge-vip';
+                badge.innerHTML = '<span class="dot-status gold"></span> ADMIN ACCESS';
+            } else if (dataKey.type === 'vip') {
+                badge.className = 'badge-status badge-vip';
+                badge.innerHTML = '<span class="dot-status gold"></span> VIP ACCESS';
+            } else {
+                badge.className = 'badge-status badge-success';
+                badge.innerHTML = `<span class="dot-status green"></span> ${getKeyTypeLabel(dataKey.type)} · ${getTimeLeft(key)}`;
+            }
+
             document.getElementById("mainApp").style.display = "block";
+            
             const noticeSeen = localStorage.getItem('phamhieu_notice_seen');
             if (noticeSeen === 'true') {
                 document.getElementById('noticeContainer').style.display = 'none';
                 document.getElementById('senseContent').style.display = 'block';
             }
+            
             localStorage.setItem('phamhieu_current_key', key);
         }
 
-        function getTimeLeft(key) {
-            const data = keyDB[key];
-            if (!data || data.type === 'vip' || !data.expires) return '∞';
-            const now = new Date();
-            const expire = new Date(data.expires);
-            if (now > expire) return 'Expired';
-            const diffMs = expire - now;
-            const hours = Math.floor(diffMs / (60*60*1000));
-            const mins = Math.floor((diffMs % (60*60*1000)) / (60*1000));
-            if (hours > 24) {
-                const days = Math.floor(hours / 24);
-                return `${days}d ${hours % 24}h`;
-            }
-            return `${hours}h ${mins}m`;
-        }
+        function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
 
         function newDevice() {
             document.getElementById("mainApp").style.display = "none";
@@ -1209,63 +2474,197 @@
             document.getElementById("deviceInput").value = "";
         }
 
+        // ============================================================
+        // ĐĂNG XUẤT KEY
+        // ============================================================
+        function logoutKey() {
+            if (!confirm('Bạn có chắc muốn đăng xuất key hiện tại?')) return;
+            
+            const key = document.getElementById("keyInput").value.trim().toUpperCase();
+            const deviceId = getDeviceId();
+            
+            if (keyDB[key]) {
+                const index = keyDB[key].devices.indexOf(deviceId);
+                if (index !== -1) {
+                    keyDB[key].devices.splice(index, 1);
+                }
+            }
+            
+            const saved = localStorage.getItem('adminDevices');
+            if (saved) {
+                adminDevices = JSON.parse(saved);
+                const adminIndex = adminDevices.indexOf(deviceId);
+                if (adminIndex !== -1) {
+                    adminDevices.splice(adminIndex, 1);
+                    localStorage.setItem('adminDevices', JSON.stringify(adminDevices));
+                }
+            }
+            
+            localStorage.removeItem('phamhieu_current_key');
+            localStorage.removeItem('phamhieu_notice_seen');
+            
+            document.getElementById("mainApp").style.display = "none";
+            document.getElementById("loginBox").style.display = "block";
+            document.getElementById("keyInput").value = '';
+            document.getElementById("keyInfo").className = 'key-info';
+            document.getElementById("keyInfo").innerHTML = '⚡ Nhập key để bắt đầu';
+            
+            localStorage.removeItem('deviceName');
+            updateAdminSlots();
+            
+            alert('✅ Đã đăng xuất key thành công!');
+        }
+
+        // ============================================================
+        // SHOW KEY INFO
+        // ============================================================
         function showKeyInfo() {
             const key = document.getElementById("keyInput").value.trim().toUpperCase();
             if (!key || !keyDB[key]) {
-                alert('⚠️ Key not found');
+                alert('⚠️ Không tìm thấy key!');
                 return;
             }
             const data = keyDB[key];
-            let msg = `🔑 KEY INFO\n\n`;
-            msg += `Key: ${key}\n`;
-            msg += `Type: ${getKeyTypeFull(data.type)}\n`;
+            let msg = `🔑 THÔNG TIN KEY\n\n`;
+            msg += `📌 Key: ${key}\n`;
+            msg += `📦 Loại: ${getKeyTypeLabel(data.type)}\n`;
+            msg += `📱 Thiết bị: ${data.devices ? data.devices.length : 0}/1\n`;
 
             if (data.activatedAt) {
                 const activated = new Date(data.activatedAt);
-                msg += `Activated: ${activated.toLocaleDateString()} ${activated.toLocaleTimeString()}\n`;
+                msg += `📅 Kích hoạt: ${activated.toLocaleTimeString()} ${activated.toLocaleDateString()}\n`;
             } else {
-                msg += `Activated: Pending\n`;
+                msg += `📅 Kích hoạt: Chưa kích hoạt\n`;
             }
 
-            if (data.type === 'vip') {
-                msg += `Expiry: ∞ (Permanent)\n`;
-                msg += `Status: ✅ Active\n`;
+            if (data.type === 'admin') {
+                msg += `♾️ Còn lại: Vĩnh viễn (Admin)\n`;
+                msg += `📊 Trạng thái: ✅ Hoạt động\n`;
+                msg += `👑 Admin KHÔNG GIỚI HẠN thiết bị\n`;
+            } else if (data.type === 'vip') {
+                msg += `♾️ Còn lại: Vĩnh viễn\n`;
+                msg += `📊 Trạng thái: ✅ Hoạt động\n`;
             } else if (data.expires) {
                 const expire = new Date(data.expires);
                 const now = new Date();
-                msg += `Expiry: ${expire.toLocaleDateString()} ${expire.toLocaleTimeString()}\n`;
+                msg += `⏳ Hết hạn: ${expire.toLocaleTimeString()} ${expire.toLocaleDateString()}\n`;
                 if (now > expire) {
-                    const hours = Math.floor((now - expire) / (60*60*1000));
-                    msg += `⚠️ Expired (${hours}h ago)\n`;
-                    msg += `⛔ Login disabled\n`;
-                    msg += `📞 Contact admin: 0976457016\n`;
+                    msg += `⚠️ Đã hết hạn!\n`;
+                    msg += `⛔ KHÔNG THỂ ĐĂNG NHẬP!\n`;
+                    msg += `⏰ Sẽ tự động gia hạn sau 5 ngày\n`;
                 } else {
-                    const diffMs = expire - now;
-                    const hours = Math.floor(diffMs / (60*60*1000));
-                    const mins = Math.floor((diffMs % (60*60*1000)) / (60*1000));
-                    msg += `Remaining: ${hours}h ${mins}m\n`;
-                    msg += `Status: ✅ Active\n`;
+                    msg += `📅 Còn lại: ${getTimeLeft(key)}\n`;
+                    msg += `📊 Trạng thái: ✅ Hoạt động\n`;
                 }
             }
             alert(msg);
         }
 
+        // ============================================================
+        // DPI VIP CONFIG
+        // ============================================================
+        function downloadDPI() {
+            const config = `<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+        <plist version="1.0">
+        <dict>
+            <key>PayloadType</key>
+            <string>Configuration</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>PayloadIdentifier</key>
+            <string>com.npdpi.vip.config</string>
+            <key>PayloadUUID</key>
+            <string>${generateUUID()}</string>
+            <key>PayloadDisplayName</key>
+            <string>DPI VIP Configuration</string>
+            <key>PayloadDescription</key>
+            <string>DPI VIP - Tối ưu hóa cấu hình iOS</string>
+            <key>PayloadOrganization</key>
+            <string>NP DPI Pro</string>
+            <key>PayloadRemovalDisallowed</key>
+            <false/>
+            <key>PayloadContent</key>
+            <array>
+                <dict>
+                    <key>PayloadType</key>
+                    <string>com.apple.webClip.managed</string>
+                    <key>PayloadVersion</key>
+                    <integer>1</integer>
+                    <key>PayloadIdentifier</key>
+                    <string>com.npdpi.vip.webclip</string>
+                    <key>PayloadUUID</key>
+                    <string>${generateUUID()}</string>
+                    <key>PayloadDisplayName</key>
+                    <string>DPI VIP</string>
+                    <key>URL</key>
+                    <string>https://npdpi.vip/config</string>
+                    <key>Label</key>
+                    <string>DPI VIP</string>
+                    <key>IsRemovable</key>
+                    <true/>
+                    <key>FullScreen</key>
+                    <true/>
+                </dict>
+            </array>
+        </dict>
+        </plist>`;
+
+            const blob = new Blob([config], { type: 'application/x-apple-aspen-config' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'DPI_VIP.mobileconfig';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function generateUUID() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                const r = Math.random() * 16 | 0;
+                const v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        // ============================================================
+        // MUA KEY TỰ ĐỘNG
+        // ============================================================
+        function openBuyModal() {
+            document.getElementById('buyModal').classList.add('show');
+        }
+
+        function closeBuyModal() {
+            document.getElementById('buyModal').classList.remove('show');
+        }
+
+        // ============================================================
+        // ADMIN PANEL
+        // ============================================================
         function showAdminPanel() {
             const key = document.getElementById("keyInput").value.trim().toUpperCase();
             if (key !== ADMIN_KEY) {
-                alert('⛔ Admin access denied');
+                alert('⛔ Chỉ ADMIN mới có quyền truy cập!');
                 return;
             }
+            
+            checkAndRenewKeys();
+            
             const panel = document.getElementById('adminPanel');
             const listEl = document.getElementById('adminKeyList');
-            let counts = { vip: 0, '1m': 0, '3m': 0, '2m': 0, '1w': 0, '1d': 0, '11h': 0, '5h': 0, '2h': 0 };
+
+            let counts = { admin: 0, vip: 0, '1m': 0, '3m': 0, '2m': 0, '1w': 0, '1d': 0, '11h': 0, '5h': 0, '2h': 0 };
             let expired = 0;
+            let totalDevices = 0;
             const now = new Date();
 
             Object.keys(keyDB).forEach(k => {
                 const data = keyDB[k];
                 counts[data.type] = (counts[data.type] || 0) + 1;
-                if (data.type !== 'vip' && data.expires) {
+                totalDevices += (data.devices ? data.devices.length : 0);
+                if (data.type !== 'admin' && data.type !== 'vip' && data.expires) {
                     const expireDate = new Date(data.expires);
                     if (now > expireDate) expired++;
                 }
@@ -1273,58 +2672,67 @@
 
             let html = `
                 <div style="margin-bottom:10px;font-size:11px;color:rgba(255,255,255,0.3);font-weight:300;letter-spacing:0.5px;">
-                    Total: <strong style="color:#fff;">${Object.keys(keyDB).length}</strong>
+                    Tổng: <strong style="color:#fff;">${Object.keys(keyDB).length}</strong>
+                    | 👑 ADMIN: <strong style="color:#ef4444;">${counts.admin}</strong>
                     | VIP: <strong style="color:#ffd700;">${counts.vip}</strong>
-                    | 30D: <strong style="color:#00ff88;">${counts['1m']}</strong>
-                    | 90D: <strong style="color:#00d4ff;">${counts['3m']}</strong>
-                    | 60D: <strong style="color:#a855f7;">${counts['2m']}</strong>
-                    | 7D: <strong style="color:#f59e0b;">${counts['1w']}</strong>
+                    | 1T: <strong style="color:#00ff88;">${counts['1m']}</strong>
+                    | 3T: <strong style="color:#00d4ff;">${counts['3m']}</strong>
+                    | 2T: <strong style="color:#a855f7;">${counts['2m']}</strong>
+                    | 1W: <strong style="color:#f59e0b;">${counts['1w']}</strong>
                     | 1D: <strong style="color:#ef4444;">${counts['1d']}</strong>
                     | 11H: <strong style="color:#ec4899;">${counts['11h']}</strong>
                     | 5H: <strong style="color:#a855f7;">${counts['5h']}</strong>
                     | 2H: <strong style="color:#fb923c;">${counts['2h']}</strong>
-                    ${expired > 0 ? `| <span style="color:#ef4444;">Expired: ${expired}</span>` : ''}
+                    ${expired > 0 ? `| ⚠️ Hết hạn: <span style="color:#ef4444;">${expired}</span>` : ''}
+                    <br>📱 Tổng thiết bị: <strong style="color:#00d4ff;">${totalDevices}</strong>
+                    <br>👑 Admin: <strong style="color:#ffd700;">KHÔNG GIỚI HẠN thiết bị</strong>
+                    <br>⏰ Tự động gia hạn sau 5 ngày hết hạn
                 </div>
-                <div style="font-size:9px;color:rgba(255,255,255,0.1);margin-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.03);padding-bottom:6px;letter-spacing:1px;font-weight:300;">
-                    ● ACTIVE ● EXPIRED (LOGIN DISABLED)
+                <div style="font-size:9px;color:rgba(255,255,255,0.06);margin-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.02);padding-bottom:6px;letter-spacing:1px;font-weight:300;">
+                    🟢 HOẠT ĐỘNG ● 🔴 HẾT HẠN (sẽ gia hạn sau 5 ngày) ● 🔒 1 THIẾT BỊ
                 </div>
             `;
 
             const sortedKeys = Object.keys(keyDB).sort((a, b) => {
-                const order = { vip: 0, '3m': 1, '2m': 2, '1m': 3, '1w': 4, '1d': 5, '11h': 6, '5h': 7, '2h': 8 };
+                const order = { admin: 0, vip: 1, '3m': 2, '2m': 3, '1m': 4, '1w': 5, '1d': 6, '11h': 7, '5h': 8, '2h': 9 };
                 return (order[keyDB[a].type] || 99) - (order[keyDB[b].type] || 99);
             });
 
             sortedKeys.forEach(k => {
                 const data = keyDB[k];
-                const isVip = data.type === 'vip';
-                const typeLabel = getKeyTypeFull(data.type);
+                const typeLabel = getKeyTypeLabel(data.type);
                 let expireInfo = '∞';
                 let statusIcon = '🟢';
+                const deviceCount = data.devices ? data.devices.length : 0;
 
-                if (!isVip && data.expires) {
+                if (data.type !== 'admin' && data.type !== 'vip' && data.expires) {
                     const expireDate = new Date(data.expires);
                     const nowDate = new Date();
                     if (nowDate > expireDate) {
-                        const hours = Math.floor((nowDate - expireDate) / (60*60*1000));
-                        expireInfo = `🔴 ${hours}h ago`;
-                        statusIcon = '🔴';
+                        const days = Math.floor((nowDate - expireDate) / (24 * 60 * 60 * 1000));
+                        expireInfo = `Hết hạn ${days} ngày trước (sẽ gia hạn sau ${5 - days} ngày)`;
+                        statusIcon = days >= 5 ? '🔄' : '🔴';
                     } else {
-                        const diffMs = expireDate - nowDate;
-                        const hours = Math.floor(diffMs / (60*60*1000));
-                        const mins = Math.floor((diffMs % (60*60*1000)) / (60*1000));
-                        expireInfo = `🟢 ${hours}h${mins}m`;
+                        const daysLeft = Math.floor((expireDate - nowDate) / (24 * 60 * 60 * 1000));
+                        if (daysLeft > 0) {
+                            expireInfo = `Còn ${daysLeft} ngày`;
+                        } else {
+                            const hoursLeft = Math.floor((expireDate - nowDate) / (60 * 60 * 1000));
+                            expireInfo = `Còn ${hoursLeft}h`;
+                        }
                         statusIcon = '🟢';
                     }
                 }
 
                 const badgeClass = getKeyBadge(data.type);
+                const deviceInfo = data.type === 'admin' ? '📱∞' : `📱${deviceCount}/1`;
                 html += `
-                    <div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.02);font-size:10px;font-weight:300;">
-                        <span style="color:rgba(255,255,255,0.4);font-size:9px;font-family:monospace;">${k}</span>
+                    <div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.015);font-size:10px;font-weight:300;">
+                        <span style="color:rgba(255,255,255,0.3);font-size:9px;font-family:monospace;">${k}</span>
                         <span>
                             <span class="badge ${badgeClass}">${typeLabel}</span>
-                            <span style="font-size:8px;color:rgba(255,255,255,0.2);margin-left:4px;">${expireInfo}</span>
+                            <span style="font-size:8px;color:rgba(255,255,255,0.15);margin-left:4px;">${deviceInfo}</span>
+                            <span style="font-size:8px;color:rgba(255,255,255,0.1);margin-left:4px;">${expireInfo}</span>
                             <span style="font-size:10px;margin-left:4px;">${statusIcon}</span>
                         </span>
                     </div>
@@ -1341,19 +2749,32 @@
         }
 
         // ============================================================
-        // INIT
+        // KHỞI TẠO
         // ============================================================
         initKeyDB();
 
+        setInterval(checkAndRenewKeys, 30 * 60 * 1000);
+
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🚀 PhamHieu Pro System Loaded');
-            console.log('📊 Total keys:', Object.keys(keyDB).length);
+            console.log('🚀 NP DPI PRO - Premium Edition Loaded');
+            console.log('📊 Tổng số key:', Object.keys(keyDB).length);
             console.log('👑 Admin key:', ADMIN_KEY);
+            console.log('📱 Admin: KHÔNG GIỚI HẠN thiết bị');
+            console.log('⏰ Tự động gia hạn key sau 5 ngày hết hạn');
+
+            const saved = localStorage.getItem('adminDevices');
+            if (saved) {
+                adminDevices = JSON.parse(saved);
+            }
+            updateAdminSlots();
 
             const savedKey = localStorage.getItem('phamhieu_current_key');
             if (savedKey && keyDB[savedKey]) {
                 document.getElementById('keyInput').value = savedKey;
+                console.log('🔑 Đã tải key đã lưu:', savedKey);
             }
+            
+            checkAndRenewKeys();
         });
     </script>
 </body>
