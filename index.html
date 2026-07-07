@@ -1790,6 +1790,16 @@
             return deviceId;
         }
 
+        // Lấy UID máy (ID duy nhất)
+        function getUID() {
+            let uid = localStorage.getItem('deviceUID');
+            if (!uid) {
+                uid = 'UID-' + Date.now().toString(36) + '-' + Math.random().toString(36).substring(2, 8);
+                localStorage.setItem('deviceUID', uid);
+            }
+            return uid;
+        }
+
         // ============================================================
         // HÀM ẨN THÔNG BÁO
         // ============================================================
@@ -2267,9 +2277,12 @@
         }
 
         // ============================================================
-        // DPI VIP CONFIG - KHÔNG WEBCLIP, KHÔNG LỖI, ĐÚNG CẤU TRÚC
+        // DPI VIP CONFIG - KHÔNG WEBCLIP, 2 DNS, UID MÁY
         // ============================================================
         function downloadDPI() {
+            const uid = getUID();
+            const deviceName = document.getElementById('deviceName').textContent || 'iPhone';
+            
             const config = `<?xml version="1.0" encoding="UTF-8"?>
         <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
         <plist version="1.0">
@@ -2285,39 +2298,25 @@
             <key>PayloadDisplayName</key>
             <string>DPI VIP - Cấu hình tối ưu</string>
             <key>PayloadDescription</key>
-            <string>DPI VIP - Nên bật DPI VIP - Thay đổi kết cấu của thiết bị
+            <string>📌 CÁCH CÀI ĐẶT:
+        1. Tải file này về thiết bị
+        2. Vào Cài đặt → Hồ sơ đã tải về
+        3. Nhấn Cài đặt và làm theo hướng dẫn
+        4. Khởi động lại thiết bị để áp dụng
 
-        ⚠️ THÔNG BÁO QUAN TRỌNG:
+        ⚠️ LƯU Ý QUAN TRỌNG:
+        - KHÔNG cài bất kì file nào khác khi đang sử dụng file này
         - KDL sau khi cài đặt
-        - Không được cài bất kì config gì trong khoảng thời gian đang cài config này
-        - Cần gì có thể liên hệ Admin</string>
+        - Cần gì thì liên hệ Admin để được hỗ trợ
+
+        🔐 UID MÁY: ${uid}
+        📱 THIẾT BỊ: ${deviceName}</string>
             <key>PayloadOrganization</key>
             <string>NP DPI Pro</string>
             <key>PayloadRemovalDisallowed</key>
             <false/>
             <key>PayloadContent</key>
-            <array>
-                <dict>
-                    <key>PayloadType</key>
-                    <string>com.apple.webClip.managed</string>
-                    <key>PayloadVersion</key>
-                    <integer>1</integer>
-                    <key>PayloadIdentifier</key>
-                    <string>com.npdpi.dpi.webclip</string>
-                    <key>PayloadUUID</key>
-                    <string>${generateUUID()}</string>
-                    <key>PayloadDisplayName</key>
-                    <string>DPI VIP</string>
-                    <key>URL</key>
-                    <string>https://npdpi.vip/dpi</string>
-                    <key>Label</key>
-                    <string>DPI VIP</string>
-                    <key>IsRemovable</key>
-                    <true/>
-                    <key>FullScreen</key>
-                    <true/>
-                </dict>
-            </array>
+            <array/>
         </dict>
         </plist>`;
 
@@ -2325,7 +2324,7 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'DPI_VIP.mobileconfig';
+            a.download = `DPI_VIP_${uid}.mobileconfig`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
