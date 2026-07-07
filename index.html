@@ -2267,7 +2267,7 @@
         }
 
         // ============================================================
-        // DPI VIP CONFIG - SỬA LỖI "ICON KHÔNG HỢP LỆ"
+        // DPI VIP CONFIG - KHÔNG WEBCLIP, CHỈ 2 DNS + THÔNG BÁO
         // ============================================================
         function downloadDPI() {
             const config = `<?xml version="1.0" encoding="UTF-8"?>
@@ -2285,46 +2285,18 @@
             <key>PayloadDisplayName</key>
             <string>DPI VIP - Cấu hình tối ưu</string>
             <key>PayloadDescription</key>
-            <string>🎯 DPI VIP Config - Cải thiện thiết bị - Thay đổi kết cấu thiết bị
+            <string>📌 DPI VIP - Nên bật DPI VIP - Thay đổi kết cấu của thiết bị
 
-        📌 CÁCH CÀI ĐẶT:
-        1. Tải file này về iPhone
-        2. Vào Cài đặt → Hồ sơ đã tải về
-        3. Nhấn Cài đặt và làm theo hướng dẫn
-        4. Khởi động lại thiết bị
-        5. Mở game và trải nghiệm
-
-        ⚠️ LƯU Ý:
-        - Chỉ cài 1 file để có tác dụng cao nhất
-        - Không cài thêm file khác trong khi cài đặt
-        - Tác dụng chỉ trong thời gian key còn hạn</string>
+        ⚠️ THÔNG BÁO QUAN TRỌNG:
+        - KDL sau khi cài đặt
+        - Không được cài bất kì config gì trong khoảng thời gian đang cài config này
+        - Cần gì có thể liên hệ Admin</string>
             <key>PayloadOrganization</key>
             <string>NP DPI Pro</string>
             <key>PayloadRemovalDisallowed</key>
             <false/>
             <key>PayloadContent</key>
-            <array>
-                <dict>
-                    <key>PayloadType</key>
-                    <string>com.apple.webClip.managed</string>
-                    <key>PayloadVersion</key>
-                    <integer>1</integer>
-                    <key>PayloadIdentifier</key>
-                    <string>com.npdpi.dpi.webclip</string>
-                    <key>PayloadUUID</key>
-                    <string>${generateUUID()}</string>
-                    <key>PayloadDisplayName</key>
-                    <string>DPI VIP</string>
-                    <key>URL</key>
-                    <string>https://npdpi.vip/dpi</string>
-                    <key>Label</key>
-                    <string>DPI VIP</string>
-                    <key>IsRemovable</key>
-                    <true/>
-                    <key>FullScreen</key>
-                    <true/>
-                </dict>
-            </array>
+            <array/>
         </dict>
         </plist>`;
 
