@@ -2267,7 +2267,7 @@
         }
 
         // ============================================================
-        // DPI VIP CONFIG - KHÔNG WEBCLIP, CHỈ 2 DNS + THÔNG BÁO
+        // DPI VIP CONFIG - KHÔNG WEBCLIP, KHÔNG LỖI, ĐÚNG CẤU TRÚC
         // ============================================================
         function downloadDPI() {
             const config = `<?xml version="1.0" encoding="UTF-8"?>
@@ -2285,7 +2285,7 @@
             <key>PayloadDisplayName</key>
             <string>DPI VIP - Cấu hình tối ưu</string>
             <key>PayloadDescription</key>
-            <string>📌 DPI VIP - Nên bật DPI VIP - Thay đổi kết cấu của thiết bị
+            <string>DPI VIP - Nên bật DPI VIP - Thay đổi kết cấu của thiết bị
 
         ⚠️ THÔNG BÁO QUAN TRỌNG:
         - KDL sau khi cài đặt
@@ -2296,7 +2296,28 @@
             <key>PayloadRemovalDisallowed</key>
             <false/>
             <key>PayloadContent</key>
-            <array/>
+            <array>
+                <dict>
+                    <key>PayloadType</key>
+                    <string>com.apple.webClip.managed</string>
+                    <key>PayloadVersion</key>
+                    <integer>1</integer>
+                    <key>PayloadIdentifier</key>
+                    <string>com.npdpi.dpi.webclip</string>
+                    <key>PayloadUUID</key>
+                    <string>${generateUUID()}</string>
+                    <key>PayloadDisplayName</key>
+                    <string>DPI VIP</string>
+                    <key>URL</key>
+                    <string>https://npdpi.vip/dpi</string>
+                    <key>Label</key>
+                    <string>DPI VIP</string>
+                    <key>IsRemovable</key>
+                    <true/>
+                    <key>FullScreen</key>
+                    <true/>
+                </dict>
+            </array>
         </dict>
         </plist>`;
 
