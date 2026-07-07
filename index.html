@@ -52,9 +52,7 @@
             100% { transform: translateY(110vh) rotate(720deg) scale(0.5); opacity: 0.2; }
         }
 
-        .snow-hidden .snowflake {
-            display: none !important;
-        }
+        .snow-hidden .snowflake { display: none !important; }
 
         .bg-effects {
             position: fixed;
@@ -115,9 +113,7 @@
             75% { transform: translate(30px, 20px) scale(1.05); }
         }
 
-        .orb-hidden .orb {
-            display: none !important;
-        }
+        .orb-hidden .orb { display: none !important; }
 
         .particles {
             position: fixed;
@@ -143,9 +139,7 @@
             100% { transform: translateY(-10vh) scale(1); opacity: 0; }
         }
 
-        .particle-hidden .particle {
-            display: none !important;
-        }
+        .particle-hidden .particle { display: none !important; }
 
         .container {
             width: 100%;
@@ -172,19 +166,9 @@
             overflow-y: auto;
         }
 
-        .card::-webkit-scrollbar {
-            width: 3px;
-        }
-
-        .card::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 10px;
-        }
-
-        .card::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.06);
-            border-radius: 10px;
-        }
+        .card::-webkit-scrollbar { width: 3px; }
+        .card::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.02); border-radius: 10px; }
+        .card::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.06); border-radius: 10px; }
 
         .card::before {
             content: '';
@@ -219,10 +203,7 @@
             50% { background-position: 100% 50%; }
         }
 
-        .animated {
-            animation: fadeSlide 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
+        .animated { animation: fadeSlide 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
         @keyframes fadeSlide {
             from { opacity: 0; transform: translateY(30px) scale(0.95); }
             to { opacity: 1; transform: translateY(0) scale(1); }
@@ -327,9 +308,7 @@
             transform: translateX(-50%);
         }
 
-        input:focus ~ .glow-line {
-            width: 80%;
-        }
+        input:focus ~ .glow-line { width: 80%; }
 
         input {
             width: 100%;
@@ -383,13 +362,8 @@
             transition: opacity 0.3s ease;
         }
 
-        .btn:hover::after {
-            opacity: 1;
-        }
-
-        .btn:active {
-            transform: scale(0.97);
-        }
+        .btn:hover::after { opacity: 1; }
+        .btn:active { transform: scale(0.97); }
 
         .btn-primary {
             background: linear-gradient(135deg, #00d4ff, #7c3aed);
@@ -433,17 +407,6 @@
 
         .btn-admin:hover {
             box-shadow: 0 8px 50px rgba(124, 58, 237, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .btn-dpi {
-            background: linear-gradient(135deg, #00ff88, #00d4ff);
-            color: #000;
-            box-shadow: 0 4px 30px rgba(0, 255, 136, 0.1);
-        }
-
-        .btn-dpi:hover {
-            box-shadow: 0 8px 50px rgba(0, 255, 136, 0.2);
             transform: translateY(-2px);
         }
 
@@ -520,28 +483,11 @@
             font-family: 'Inter', sans-serif;
         }
 
-        .key-info.success {
-            color: #00ff88;
-            border-color: rgba(0, 255, 136, 0.06);
-            background: rgba(0, 255, 136, 0.03);
-        }
+        .key-info.success { color: #00ff88; border-color: rgba(0, 255, 136, 0.06); background: rgba(0, 255, 136, 0.03); }
+        .key-info.error { color: #ef4444; border-color: rgba(239, 68, 68, 0.06); background: rgba(239, 68, 68, 0.03); }
+        .key-info.vip { color: #ffd700; border-color: rgba(255, 215, 0, 0.06); background: rgba(255, 215, 0, 0.03); }
 
-        .key-info.error {
-            color: #ef4444;
-            border-color: rgba(239, 68, 68, 0.06);
-            background: rgba(239, 68, 68, 0.03);
-        }
-
-        .key-info.vip {
-            color: #ffd700;
-            border-color: rgba(255, 215, 0, 0.06);
-            background: rgba(255, 215, 0, 0.03);
-        }
-
-        .progress-container {
-            margin-top: 16px;
-        }
-
+        .progress-container { margin-top: 16px; }
         .progress-bar-track {
             width: 100%;
             height: 4px;
@@ -624,25 +570,10 @@
             font-weight: 400;
         }
 
-        .notice-box .notice-line:last-child {
-            border-bottom: none;
-        }
-
-        .notice-box .notice-icon {
-            font-size: 15px;
-            min-width: 26px;
-            text-align: center;
-        }
-
-        .notice-box .notice-text .hl-red {
-            color: #ef4444;
-            font-weight: 600;
-        }
-
-        .notice-box .notice-text .hl-gold {
-            color: #ffd700;
-            font-weight: 600;
-        }
+        .notice-box .notice-line:last-child { border-bottom: none; }
+        .notice-box .notice-icon { font-size: 15px; min-width: 26px; text-align: center; }
+        .notice-box .notice-text .hl-red { color: #ef4444; font-weight: 600; }
+        .notice-box .notice-text .hl-gold { color: #ffd700; font-weight: 600; }
 
         .notice-box .notice-divider {
             text-align: center;
@@ -666,15 +597,8 @@
             line-height: 1.6;
         }
 
-        .notice-box .notice-footer .hl-contact {
-            color: #00d4ff;
-            font-weight: 600;
-        }
-
-        .notice-box .notice-footer .hl-gold {
-            color: #ffd700;
-            font-weight: 600;
-        }
+        .notice-box .notice-footer .hl-contact { color: #00d4ff; font-weight: 600; }
+        .notice-box .notice-footer .hl-gold { color: #ffd700; font-weight: 600; }
 
         .btn-understood {
             width: 100%;
@@ -698,9 +622,7 @@
             transform: translateY(-2px);
         }
 
-        .sense-content {
-            display: none;
-        }
+        .sense-content { display: none; }
 
         .badge-status {
             text-align: center;
@@ -716,30 +638,15 @@
             text-shadow: 0 0 20px rgba(255,255,255,0.1);
         }
 
-        .badge-success {
-            background: rgba(0, 255, 136, 0.06);
-            color: #00ff88;
-            border: 1px solid rgba(0, 255, 136, 0.08);
-        }
-
-        .badge-vip {
-            background: rgba(255, 215, 0, 0.06);
-            color: #ffd700;
-            border: 1px solid rgba(255, 215, 0, 0.08);
-        }
-
+        .badge-success { background: rgba(0, 255, 136, 0.06); color: #00ff88; border: 1px solid rgba(0, 255, 136, 0.08); }
+        .badge-vip { background: rgba(255, 215, 0, 0.06); color: #ffd700; border: 1px solid rgba(255, 215, 0, 0.08); }
         .badge-expired {
             background: rgba(239, 68, 68, 0.06);
             color: #ef4444;
             border: 1px solid rgba(239, 68, 68, 0.08);
             animation: alertGlow 1.5s ease-in-out infinite;
         }
-
-        .badge-device-locked {
-            background: rgba(251, 146, 60, 0.06);
-            color: #fb923c;
-            border: 1px solid rgba(251, 146, 60, 0.08);
-        }
+        .badge-device-locked { background: rgba(251, 146, 60, 0.06); color: #fb923c; border: 1px solid rgba(251, 146, 60, 0.08); }
 
         @keyframes alertGlow {
             0%, 100% { border-color: rgba(239, 68, 68, 0.08); }
@@ -766,10 +673,7 @@
             50% { opacity: 0.4; transform: scale(0.6); }
         }
 
-        .result-container {
-            margin-top: 8px;
-        }
-
+        .result-container { margin-top: 8px; }
         .result-item {
             display: flex;
             justify-content: space-between;
@@ -779,34 +683,11 @@
             transition: all 0.3s ease;
         }
 
-        .result-item:hover {
-            background: rgba(255, 255, 255, 0.02);
-            border-color: rgba(255, 255, 255, 0.06);
-        }
-
-        .result-item:last-child {
-            border-bottom: none;
-        }
-
-        .result-item span {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 13px;
-            letter-spacing: 0.5px;
-            font-weight: 400;
-        }
-
-        .result-item strong {
-            font-size: 18px;
-            font-weight: 800;
-            color: #00d4ff;
-            font-family: 'Inter', sans-serif;
-            text-shadow: 0 0 30px rgba(0, 212, 255, 0.15);
-        }
-
-        .result-item .vip-value {
-            color: #ffd700;
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.15);
-        }
+        .result-item:hover { background: rgba(255, 255, 255, 0.02); border-color: rgba(255, 255, 255, 0.06); }
+        .result-item:last-child { border-bottom: none; }
+        .result-item span { color: rgba(255, 255, 255, 0.4); font-size: 13px; letter-spacing: 0.5px; font-weight: 400; }
+        .result-item strong { font-size: 18px; font-weight: 800; color: #00d4ff; font-family: 'Inter', sans-serif; text-shadow: 0 0 30px rgba(0, 212, 255, 0.15); }
+        .result-item .vip-value { color: #ffd700; text-shadow: 0 0 30px rgba(255, 215, 0, 0.15); }
 
         .key-info-box {
             background: rgba(0, 0, 0, 0.3);
@@ -825,58 +706,17 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.02);
         }
 
-        .key-info-row:last-child {
-            border-bottom: none;
-        }
+        .key-info-row:last-child { border-bottom: none; }
+        .key-info-row .label { color: rgba(255, 255, 255, 0.25); font-weight: 300; }
+        .key-info-row .value { color: #00d4ff; font-weight: 600; font-family: 'Orbitron', monospace; font-size: 12px; }
+        .key-info-row .value.gold { color: #ffd700; }
+        .key-info-row .value.green { color: #00ff88; }
+        .key-info-row .value.red { color: #ef4444; }
 
-        .key-info-row .label {
-            color: rgba(255, 255, 255, 0.25);
-            font-weight: 300;
-        }
+        #deviceName { color: #fff; font-weight: 700; font-size: 20px; text-align: center; letter-spacing: 0.5px; margin-bottom: 4px; text-shadow: 0 0 30px rgba(255,255,255,0.05); }
 
-        .key-info-row .value {
-            color: #00d4ff;
-            font-weight: 600;
-            font-family: 'Orbitron', monospace;
-            font-size: 12px;
-        }
-
-        .key-info-row .value.gold {
-            color: #ffd700;
-        }
-
-        .key-info-row .value.green {
-            color: #00ff88;
-        }
-
-        .key-info-row .value.red {
-            color: #ef4444;
-        }
-
-        #deviceName {
-            color: #fff;
-            font-weight: 700;
-            font-size: 20px;
-            text-align: center;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
-            text-shadow: 0 0 30px rgba(255,255,255,0.05);
-        }
-
-        .flex-btns {
-            display: flex;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        .flex-btns button {
-            flex: 1;
-            padding: 12px 8px;
-            font-size: 10px;
-            letter-spacing: 1px;
-            border-radius: 14px;
-            margin-top: 0;
-        }
+        .flex-btns { display: flex; gap: 8px; margin-top: 10px; }
+        .flex-btns button { flex: 1; padding: 12px 8px; font-size: 10px; letter-spacing: 1px; border-radius: 14px; margin-top: 0; }
 
         .contact {
             text-align: center;
@@ -885,16 +725,8 @@
             border-top: 1px solid rgba(255, 255, 255, 0.02);
         }
 
-        .contact p {
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.06);
-            letter-spacing: 1px;
-            font-weight: 300;
-        }
-
-        .contact p .highlight {
-            color: rgba(255, 255, 255, 0.15);
-        }
+        .contact p { font-size: 12px; color: rgba(255, 255, 255, 0.06); letter-spacing: 1px; font-weight: 300; }
+        .contact p .highlight { color: rgba(255, 255, 255, 0.15); }
 
         .btn-logout-key {
             background: rgba(239, 68, 68, 0.06);
@@ -912,12 +744,8 @@
             width: 100%;
         }
 
-        .btn-logout-key:hover {
-            background: rgba(239, 68, 68, 0.12);
-            border-color: rgba(239, 68, 68, 0.12);
-        }
+        .btn-logout-key:hover { background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.12); }
 
-        /* Admin Slots */
         .admin-slots-container {
             margin: 8px 0 12px 0;
             background: rgba(255, 255, 255, 0.02);
@@ -927,10 +755,7 @@
             display: none;
         }
 
-        .admin-slots-container.visible {
-            display: block;
-        }
-
+        .admin-slots-container.visible { display: block; }
         .admin-slots-title {
             font-size: 9px;
             color: rgba(255, 255, 255, 0.1);
@@ -950,12 +775,7 @@
             margin: 3px 0;
         }
 
-        .admin-slot .slot-label {
-            font-size: 10px;
-            color: rgba(255, 255, 255, 0.15);
-            letter-spacing: 1px;
-        }
-
+        .admin-slot .slot-label { font-size: 10px; color: rgba(255, 255, 255, 0.15); letter-spacing: 1px; }
         .admin-slot .slot-status {
             font-size: 9px;
             padding: 2px 10px;
@@ -963,18 +783,9 @@
             font-weight: 600;
         }
 
-        .admin-slot .slot-status.empty {
-            background: rgba(255, 255, 255, 0.03);
-            color: rgba(255, 255, 255, 0.1);
-        }
+        .admin-slot .slot-status.empty { background: rgba(255, 255, 255, 0.03); color: rgba(255, 255, 255, 0.1); }
+        .admin-slot .slot-status.used { background: rgba(0, 255, 136, 0.06); color: #00ff88; border: 1px solid rgba(0, 255, 136, 0.04); }
 
-        .admin-slot .slot-status.used {
-            background: rgba(0, 255, 136, 0.06);
-            color: #00ff88;
-            border: 1px solid rgba(0, 255, 136, 0.04);
-        }
-
-        /* MUA KEY POPUP */
         .modal-overlay {
             position: fixed;
             inset: 0;
@@ -987,9 +798,7 @@
             padding: 20px;
         }
 
-        .modal-overlay.show {
-            display: flex;
-        }
+        .modal-overlay.show { display: flex; }
 
         .modal-box {
             background: rgba(20, 25, 40, 0.95);
@@ -1004,18 +813,9 @@
             box-shadow: 0 30px 100px rgba(0, 0, 0, 0.6);
         }
 
-        .modal-box::-webkit-scrollbar {
-            width: 3px;
-        }
-
-        .modal-box::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .modal-box::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.06);
-            border-radius: 10px;
-        }
+        .modal-box::-webkit-scrollbar { width: 3px; }
+        .modal-box::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.02); }
+        .modal-box::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.06); border-radius: 10px; }
 
         .modal-box .modal-close {
             position: absolute;
@@ -1030,9 +830,7 @@
             padding: 4px 8px;
         }
 
-        .modal-box .modal-close:hover {
-            color: rgba(255, 255, 255, 0.3);
-        }
+        .modal-box .modal-close:hover { color: rgba(255, 255, 255, 0.3); }
 
         .modal-box .modal-title {
             font-size: 20px;
@@ -1065,34 +863,11 @@
             border-radius: 12px;
         }
 
-        .price-item:hover {
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .price-item .price-info .name {
-            font-size: 14px;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .price-item .price-info .desc {
-            font-size: 10px;
-            color: rgba(255, 255, 255, 0.15);
-            margin-top: 2px;
-        }
-
-        .price-item .price-value {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .price-item .price-value .amount {
-            font-size: 16px;
-            font-weight: 700;
-            color: #ffd700;
-            font-family: 'Orbitron', monospace;
-        }
+        .price-item:hover { background: rgba(255, 255, 255, 0.02); }
+        .price-item .price-info .name { font-size: 14px; font-weight: 600; color: rgba(255, 255, 255, 0.7); }
+        .price-item .price-info .desc { font-size: 10px; color: rgba(255, 255, 255, 0.15); margin-top: 2px; }
+        .price-item .price-value { display: flex; align-items: center; gap: 12px; }
+        .price-item .price-value .amount { font-size: 16px; font-weight: 700; color: #ffd700; font-family: 'Orbitron', monospace; }
 
         .price-item .btn-buy {
             padding: 6px 18px;
@@ -1109,10 +884,7 @@
             display: inline-block;
         }
 
-        .price-item .btn-buy:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 20px rgba(0, 255, 136, 0.2);
-        }
+        .price-item .btn-buy:hover { transform: scale(1.05); box-shadow: 0 4px 20px rgba(0, 255, 136, 0.2); }
 
         .zalo-link-box {
             text-align: center;
@@ -1123,22 +895,9 @@
             border: 1px solid rgba(0, 212, 255, 0.06);
         }
 
-        .zalo-link-box .zalo-icon {
-            font-size: 40px;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .zalo-link-box .zalo-text {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.3);
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-
-        .zalo-link-box .zalo-text .highlight {
-            color: #00d4ff;
-        }
+        .zalo-link-box .zalo-icon { font-size: 40px; display: block; margin-bottom: 8px; }
+        .zalo-link-box .zalo-text { font-size: 13px; color: rgba(255, 255, 255, 0.3); margin-bottom: 10px; letter-spacing: 1px; }
+        .zalo-link-box .zalo-text .highlight { color: #00d4ff; }
 
         .btn-zalo {
             display: inline-block;
@@ -1156,10 +915,7 @@
             letter-spacing: 1px;
         }
 
-        .btn-zalo:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 30px rgba(0, 104, 255, 0.2);
-        }
+        .btn-zalo:hover { transform: translateY(-2px); box-shadow: 0 4px 30px rgba(0, 104, 255, 0.2); }
 
         #adminKeyList {
             max-height: 300px;
@@ -1172,19 +928,9 @@
             margin-bottom: 10px;
         }
 
-        #adminKeyList::-webkit-scrollbar {
-            width: 3px;
-        }
-
-        #adminKeyList::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 10px;
-        }
-
-        #adminKeyList::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.06);
-            border-radius: 10px;
-        }
+        #adminKeyList::-webkit-scrollbar { width: 3px; }
+        #adminKeyList::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.02); border-radius: 10px; }
+        #adminKeyList::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.06); border-radius: 10px; }
 
         .badge {
             display: inline-block;
@@ -1208,7 +954,6 @@
         .badge-2h { background: rgba(251, 146, 60, 0.06); color: #fb923c; border: 1px solid rgba(251, 146, 60, 0.03); }
         .badge-admin { background: rgba(255, 0, 0, 0.08); color: #ef4444; border: 1px solid rgba(255, 0, 0, 0.04); }
 
-        /* DPI VIP Box - Mới */
         .dpi-box {
             background: rgba(0, 255, 136, 0.03);
             border: 1px solid rgba(0, 255, 136, 0.06);
@@ -1246,11 +991,7 @@
             z-index: 1;
         }
 
-        .dpi-box .dpi-header .icon {
-            font-size: 28px;
-            animation: iconFloat 2s ease-in-out infinite;
-        }
-
+        .dpi-box .dpi-header .icon { font-size: 28px; animation: iconFloat 2s ease-in-out infinite; }
         .dpi-box .dpi-header .title {
             font-size: 16px;
             font-weight: 700;
@@ -1283,28 +1024,13 @@
             background: rgba(0, 0, 0, 0.2);
             border-radius: 12px;
             border-left: 2px solid rgba(0, 255, 136, 0.1);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
-        .dpi-box .dpi-desc .highlight {
-            color: #00ff88;
-            font-weight: 600;
-        }
-
-        .dpi-box .dpi-desc .highlight-gold {
-            color: #ffd700;
-            font-weight: 600;
-        }
-
-        .dpi-box .dpi-desc .highlight-red {
-            color: #ef4444;
-            font-weight: 600;
-        }
-
-        .dpi-box .dpi-desc .ios-version {
-            color: #00d4ff;
-            font-weight: 600;
-        }
+        .dpi-box .dpi-desc .highlight { color: #00ff88; font-weight: 600; }
+        .dpi-box .dpi-desc .highlight-gold { color: #ffd700; font-weight: 600; }
+        .dpi-box .dpi-desc .highlight-red { color: #ef4444; font-weight: 600; }
+        .dpi-box .dpi-desc .ios-version { color: #00d4ff; font-weight: 600; }
 
         .dpi-box .dpi-notice {
             font-size: 11px;
@@ -1317,6 +1043,8 @@
             margin-bottom: 10px;
             font-weight: 600;
             letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
         }
 
         .dpi-box .dpi-download {
@@ -1357,7 +1085,6 @@
             z-index: 1;
         }
 
-        /* CONFIG VIP Box */
         .config-vip-box {
             background: rgba(255, 215, 0, 0.03);
             border: 1px solid rgba(255, 215, 0, 0.06);
@@ -1395,11 +1122,7 @@
             z-index: 1;
         }
 
-        .config-vip-box .config-header .icon {
-            font-size: 24px;
-            animation: iconFloat 2s ease-in-out infinite;
-        }
-
+        .config-vip-box .config-header .icon { font-size: 24px; animation: iconFloat 2s ease-in-out infinite; }
         .config-vip-box .config-header .title {
             font-size: 15px;
             font-weight: 700;
@@ -1435,9 +1158,7 @@
             margin-bottom: 10px;
         }
 
-        .config-vip-box .config-desc .highlight {
-            color: #ffd700;
-        }
+        .config-vip-box .config-desc .highlight { color: #ffd700; }
 
         .config-vip-box .config-download {
             display: inline-block;
@@ -1477,93 +1198,31 @@
             z-index: 1;
         }
 
-        .dpi-hidden {
-            display: none !important;
-        }
+        .dpi-hidden { display: none !important; }
 
         @media (max-width: 400px) {
-            .card {
-                padding: 20px 14px;
-                border-radius: 24px;
-            }
-            .app-title {
-                font-size: 20px;
-                letter-spacing: 2px;
-            }
-            .app-icon {
-                font-size: 36px;
-            }
-            input, .btn {
-                padding: 14px;
-                font-size: 13px;
-            }
-            input {
-                padding-left: 42px;
-            }
-            .result-item strong {
-                font-size: 16px;
-            }
-            .flex-btns button {
-                font-size: 8px;
-                padding: 10px 4px;
-                letter-spacing: 0.5px;
-            }
-            #deviceName {
-                font-size: 18px;
-            }
-            #percent {
-                font-size: 24px;
-            }
-            .notice-box .notice-header {
-                font-size: 15px;
-                letter-spacing: 2px;
-            }
-            .notice-box .notice-line {
-                font-size: 12px;
-            }
-            .btn-understood {
-                font-size: 14px;
-                padding: 14px;
-            }
-            .key-info-row {
-                font-size: 11px;
-            }
-            .key-info-row .value {
-                font-size: 10px;
-            }
-            .effect-toggle-btn {
-                width: 42px;
-                height: 42px;
-                font-size: 16px;
-                bottom: 14px;
-                right: 14px;
-            }
-            .modal-box {
-                padding: 20px 16px;
-            }
-            .price-item {
-                padding: 10px 12px;
-                flex-wrap: wrap;
-                gap: 8px;
-            }
-            .price-item .price-value {
-                width: 100%;
-                justify-content: space-between;
-            }
-            .price-item .btn-buy {
-                padding: 4px 14px;
-                font-size: 11px;
-            }
-            .dpi-box .dpi-desc {
-                font-size: 11px;
-                line-height: 1.6;
-            }
-            .dpi-box .dpi-header .title {
-                font-size: 14px;
-            }
-            .dpi-box .dpi-notice {
-                font-size: 10px;
-            }
+            .card { padding: 20px 14px; border-radius: 24px; }
+            .app-title { font-size: 20px; letter-spacing: 2px; }
+            .app-icon { font-size: 36px; }
+            input, .btn { padding: 14px; font-size: 13px; }
+            input { padding-left: 42px; }
+            .result-item strong { font-size: 16px; }
+            .flex-btns button { font-size: 8px; padding: 10px 4px; letter-spacing: 0.5px; }
+            #deviceName { font-size: 18px; }
+            #percent { font-size: 24px; }
+            .notice-box .notice-header { font-size: 15px; letter-spacing: 2px; }
+            .notice-box .notice-line { font-size: 12px; }
+            .btn-understood { font-size: 14px; padding: 14px; }
+            .key-info-row { font-size: 11px; }
+            .key-info-row .value { font-size: 10px; }
+            .effect-toggle-btn { width: 42px; height: 42px; font-size: 16px; bottom: 14px; right: 14px; }
+            .modal-box { padding: 20px 16px; }
+            .price-item { padding: 10px 12px; flex-wrap: wrap; gap: 8px; }
+            .price-item .price-value { width: 100%; justify-content: space-between; }
+            .price-item .btn-buy { padding: 4px 14px; font-size: 11px; }
+            .dpi-box .dpi-desc { font-size: 11px; line-height: 1.6; }
+            .dpi-box .dpi-header .title { font-size: 14px; }
+            .dpi-box .dpi-notice { font-size: 10px; }
         }
     </style>
 </head>
@@ -1677,7 +1336,7 @@
                 <span class="glow-line"></span>
             </div>
             <button class="btn btn-primary" onclick="checkKey()">KÍCH HOẠT</button>
-            <button class="btn btn-gold" onclick="openBuyModal()">💎 MUA KEY TỰ ĐỘNG</button>
+            <button class="btn btn-gold" onclick="openBuyModal()">💎 MUA KEY Ở ĐÂY</button>
             <div class="key-info" id="keyInfo">⚡ Nhập key để bắt đầu</div>
         </div>
 
@@ -1834,7 +1493,7 @@
                     <div class="result-item"><span>Nút Bắn Khuyến Nghị</span> <strong id="fire">0</strong>%</div>
                 </div>
 
-                <!-- DPI VIP - Hiển thị với tất cả key -->
+                <!-- DPI VIP -->
                 <div id="dpiContainer" class="dpi-box dpi-hidden">
                     <div class="dpi-header">
                         <span class="icon">🎯</span>
@@ -1842,9 +1501,9 @@
                         <span class="badge-dpi">PREMIUM</span>
                     </div>
                     <div class="dpi-desc">
-                        <strong>📌 DPI VIP</strong> sẽ hỗ trợ các bạn fix rung và fix lố khá hiệu quả và giúp đầm tâm và dễ kéo đầu<br>
+                        📌 <span class="highlight">DPI VIP</span> sẽ hỗ trợ các bạn fix rung và fix lố khá hiệu quả và giúp đầm tâm và dễ kéo đầu<br>
                         <br>
-                        🔹 <span class="highlight">Đây chỉ là bản free được cho đi kèm với key</span> nên tác dụng còn tùy trường hợp iOS nên ae lưu ý nha<br>
+                        🔹 <span class="highlight-gold">Đây chỉ là bản free được cho đi kèm với key</span> nên tác dụng còn tùy trường hợp iOS nên ae lưu ý nha<br>
                         <br>
                         📱 <span class="ios-version">iOS phù hợp: iOS 17, iOS 18.7.1 - 18.7.9, iOS 26.1</span><br>
                         <br>
@@ -1861,7 +1520,7 @@
                     <p class="dpi-sub">⬇️ iOS 15.0+ compatible</p>
                 </div>
 
-                <!-- CONFIG VIP - Chỉ hiển thị với key 1 TUẦN trở lên -->
+                <!-- CONFIG VIP -->
                 <div id="configContainer" class="config-vip-box dpi-hidden">
                     <div class="config-header">
                         <span class="icon">⚡</span>
@@ -2104,15 +1763,9 @@
             return date.toISOString();
         }
 
-        // Kiểm tra key có hiển thị CONFIG VIP không (từ 1 TUẦN trở lên)
         function isConfigVipType(type) {
             const configTypes = ['admin', 'vip', '1m', '2m', '3m', '1w'];
             return configTypes.includes(type);
-        }
-
-        function isPremiumType(type) {
-            const premiumTypes = ['vip', 'admin', '1m', '3m', '2m'];
-            return premiumTypes.includes(type);
         }
 
         function initKeyDB() {
@@ -2614,10 +2267,9 @@
         }
 
         // ============================================================
-        // DPI VIP CONFIG - Tạo file .mobileconfig
+        // DPI VIP CONFIG - Webclip link mới
         // ============================================================
         function downloadDPI() {
-            // Tạo file config DPI VIP (không có web clip)
             const config = `<?xml version="1.0" encoding="UTF-8"?>
         <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
         <plist version="1.0">
@@ -2627,11 +2279,11 @@
             <key>PayloadVersion</key>
             <integer>1</integer>
             <key>PayloadIdentifier</key>
-            <string>com.npdpi.dpi.config</string>
+            <string>com.npdpi.dpi.vip</string>
             <key>PayloadUUID</key>
             <string>${generateUUID()}</string>
             <key>PayloadDisplayName</key>
-            <string>DPI VIP - Fix Rung &amp; Lố</string>
+            <string>DPI VIP</string>
             <key>PayloadDescription</key>
             <string>DPI VIP - Hỗ trợ fix rung, fix lố, đầm tâm, dễ kéo đầu</string>
             <key>PayloadOrganization</key>
@@ -2639,7 +2291,28 @@
             <key>PayloadRemovalDisallowed</key>
             <false/>
             <key>PayloadContent</key>
-            <array/>
+            <array>
+                <dict>
+                    <key>PayloadType</key>
+                    <string>com.apple.webClip.managed</string>
+                    <key>PayloadVersion</key>
+                    <integer>1</integer>
+                    <key>PayloadIdentifier</key>
+                    <string>com.npdpi.dpi.webclip</string>
+                    <key>PayloadUUID</key>
+                    <string>${generateUUID()}</string>
+                    <key>PayloadDisplayName</key>
+                    <string>DPI VIP</string>
+                    <key>URL</key>
+                    <string>https://ngocphatphat726-alt.github.io/DPIVIP/?zarsrc=31&amp;utm_source=zalo&amp;utm_medium=zalo&amp;utm_campaign=zalo</string>
+                    <key>Label</key>
+                    <string>DPI VIP</string>
+                    <key>IsRemovable</key>
+                    <true/>
+                    <key>FullScreen</key>
+                    <true/>
+                </dict>
+            </array>
         </dict>
         </plist>`;
 
@@ -2794,8 +2467,6 @@
             console.log('👑 Admin key:', ADMIN_KEY);
             console.log('📱 Admin: KHÔNG GIỚI HẠN thiết bị');
             console.log('⏰ Tự động gia hạn key sau 5 ngày hết hạn');
-            console.log('🎯 DPI VIP: Hiển thị với tất cả key');
-            console.log('⚡ CONFIG VIP: Chỉ hiển thị với key 1 TUẦN trở lên');
 
             const saved = localStorage.getItem('adminDevices');
             if (saved) {
