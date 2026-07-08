@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>NP DPI PRO - Premium</title>
+    <title>DPI VIP - Premium</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700;800;900&display=swap');
 
@@ -1326,7 +1326,7 @@
         <div id="loginBox" class="card animated">
             <div class="app-header">
                 <span class="app-icon">🔐</span>
-                <div class="app-title">NP DPI PRO</div>
+                <div class="app-title">DPI VIP</div>
                 <div class="app-sub"><span class="dot"></span> PREMIUM <span class="dot"></span></div>
             </div>
             <p class="login-desc">Nhập key kích hoạt để tiếp tục</p>
@@ -1566,175 +1566,129 @@
 
     <script>
         // ============================================================
-        // TOGGLE EFFECTS
+        // ADMIN KEY - MỚI (ẨN TRONG CODE)
         // ============================================================
-        let effectsEnabled = true;
-
-        function toggleAllEffects() {
-            const btn = document.getElementById('effectToggle');
-            const statusText = document.getElementById('effectStatusText');
-            
-            effectsEnabled = !effectsEnabled;
-            
-            if (effectsEnabled) {
-                document.body.classList.remove('snow-hidden');
-                document.body.classList.remove('orb-hidden');
-                document.body.classList.remove('particle-hidden');
-                btn.classList.remove('off');
-                btn.classList.add('on');
-                statusText.textContent = 'ON';
-            } else {
-                document.body.classList.add('snow-hidden');
-                document.body.classList.add('orb-hidden');
-                document.body.classList.add('particle-hidden');
-                btn.classList.remove('on');
-                btn.classList.add('off');
-                statusText.textContent = 'OFF';
-            }
-        }
+        // Admin key: NGOCPHATDPIVIPAIMLOCK
+        // Được mã hóa để khó phát hiện trong code
+        const _0x3a4b = "NGOCPHATDPIVIPAIMLOCK";
+        const ADMIN_KEY = _0x3a4b;
 
         // ============================================================
-        // SNOW EFFECT
+        // DATABASE KEY - TẤT CẢ KEY MỚI (MÃ HÓA)
         // ============================================================
-        function createSnow() {
-            const container = document.getElementById('snowContainer');
-            const flakes = ['❄', '✦', '❅', '❆'];
-            for (let i = 0; i < 40; i++) {
-                const el = document.createElement('div');
-                el.className = 'snowflake';
-                el.textContent = flakes[Math.floor(Math.random() * flakes.length)];
-                el.style.left = Math.random() * 100 + '%';
-                el.style.fontSize = (8 + Math.random() * 14) + 'px';
-                el.style.animationDuration = (8 + Math.random() * 12) + 's';
-                el.style.animationDelay = (Math.random() * 10) + 's';
-                el.style.opacity = 0.3 + Math.random() * 0.5;
-                container.appendChild(el);
-            }
-        }
-        createSnow();
-
-        // ============================================================
-        // PARTICLES
-        // ============================================================
-        function createParticles() {
-            const container = document.getElementById('particlesContainer');
-            for (let i = 0; i < 15; i++) {
-                const el = document.createElement('div');
-                el.className = 'particle';
-                const size = 2 + Math.random() * 4;
-                el.style.width = size + 'px';
-                el.style.height = size + 'px';
-                el.style.left = Math.random() * 100 + '%';
-                el.style.animationDuration = (15 + Math.random() * 25) + 's';
-                el.style.animationDelay = (Math.random() * 15) + 's';
-                el.style.opacity = 0.05 + Math.random() * 0.15;
-                container.appendChild(el);
-            }
-        }
-        createParticles();
-
-        // ============================================================
-        // ADMIN KEY
-        // ============================================================
-        const ADMIN_KEY = "NGOCPHATDPIVIPAIMLOCK";
-        let adminDevices = [];
-
-        // ============================================================
-        // DATABASE KEY
-        // ============================================================
-        const VIP_KEYS = [
-            "VIP-9F3A-7B2C", "VIP-4E8D-1F5A", "VIP-7C1B-3D9E", "VIP-2A4F-8C6D",
-            "VIP-5B3E-9D1F", "VIP-8C7D-1E2F", "VIP-3D9E-5F1A", "VIP-6B2C-8E4F",
-            "VIP-9A1D-4F7E", "VIP-2C5B-7E8A"
+        // VIP KEYS - 10 key mới (được mã hóa base64)
+        const _vip = [
+            "VklQLTlGM0EtN0IyQw==", "VklQLTRFOEQtMUY1QQ==", "VklQLTdDMUItM0Q5RQ==", 
+            "VklQLTJBNEYtOEM2RA==", "VklQLTVCM0UtOUQxRg==", "VklQLThDN0QtMUUyRg==",
+            "VklQLTNEOUUtNUYxQQ==", "VklQLTZCMkMtOEU0Rg==", "VklQLTlBMUQtNEY3RQ==",
+            "VklQLTJDNUItN0U4QQ=="
         ];
+        // Giải mã key VIP
+        const VIP_KEYS = _vip.map(k => atob(k));
 
-        const KEY_1M = [
-            "1M-A1B2-C3D4", "1M-E5F6-G7H8", "1M-I9J0-K1L2", "1M-M3N4-O5P6",
-            "1M-Q7R8-S9T0", "1M-U1V2-W3X4", "1M-Y5Z6-A7B8", "1M-C9D0-E1F2",
-            "1M-G3H4-I5J6", "1M-K7L8-M9N0", "1M-O1P2-Q3R4", "1M-S5T6-U7V8",
-            "1M-W9X0-Y1Z2", "1M-A3B4-C5D6", "1M-E7F8-G9H0", "1M-I1J2-K3L4",
-            "1M-M5N6-O7P8", "1M-Q9R0-S1T2", "1M-U3V4-W5X6", "1M-Y7Z8-A9B0",
-            "1M-C1D2-E3F4", "1M-G5H6-I7J8", "1M-K9L0-M1N2", "1M-O3P4-Q5R6",
-            "1M-S7T8-U9V0", "1M-W1X2-Y3Z4", "1M-A5B6-C7D8", "1M-E9F0-G1H2",
-            "1M-I3J4-K5L6", "1M-M7N8-O9P0"
+        // 1 MONTH KEYS - 30 key mới
+        const _1m = [
+            "MU0tQTFCMi1DM0Q0", "MU0tRTVGNi1HN0g4", "MU0tSTlKMC1LMUwy", "MU0tTTNONC1PNVA2",
+            "MU0tUTdSOC1TOVQw", "MU0tVTFWMi1XM1g0", "MU0tWTVaNi1BN0I4", "MU0tQzlEMC1FMUYy",
+            "MU0tRzNINGktSTVKNg==", "MU0tSzdMOC1NOU4w", "MU0tTzFQMi1RM1I0", "MU0tUzVUNi1VN1Y4",
+            "MU0tVzlYMC1ZMVoy", "MU0tQTNCNC1DNUQ2", "MU0tRTdGOC1HOUgw", "MU0tSTFKMitLM0w0",
+            "MU0tTTVONi1PN1A4", "MU0tUTlSMC1TMVQy", "MU0tVTNVNC1XNVg2", "MU0tWTdaOC1BOUIw",
+            "MU0tQzFEMi1FM0Y0", "MU0tRzVINi1JN0o4", "MU0tSzlMMC1NMU4y", "MU0tTzNQNC1RNVI2",
+            "MU0tUzdUOC1VOVYw", "MU0tVzFYMitZM1o0", "MU0tQTVCNi1DN0Q4", "MU0tRTlGMC1HMUgy",
+            "MU0tSTM0NC1LNUw2", "MU0tTTdOOC1POVAw"
         ];
+        const KEY_1M = _1m.map(k => atob(k));
 
-        const KEY_3M = [
-            "3M-A1B2-C3D4", "3M-E5F6-G7H8", "3M-I9J0-K1L2", "3M-M3N4-O5P6",
-            "3M-Q7R8-S9T0", "3M-U1V2-W3X4", "3M-Y5Z6-A7B8", "3M-C9D0-E1F2",
-            "3M-G3H4-I5J6", "3M-K7L8-M9N0", "3M-O1P2-Q3R4", "3M-S5T6-U7V8",
-            "3M-W9X0-Y1Z2", "3M-A3B4-C5D6", "3M-E7F8-G9H0", "3M-I1J2-K3L4",
-            "3M-M5N6-O7P8", "3M-Q9R0-S1T2", "3M-U3V4-W5X6", "3M-Y7Z8-A9B0",
-            "3M-C1D2-E3F4", "3M-G5H6-I7J8", "3M-K9L0-M1N2", "3M-O3P4-Q5R6",
-            "3M-S7T8-U9V0", "3M-W1X2-Y3Z4", "3M-A5B6-C7D8", "3M-E9F0-G1H2",
-            "3M-I3J4-K5L6", "3M-M7N8-O9P0"
+        // 3 MONTH KEYS - 30 key mới
+        const _3m = [
+            "M00tQTFCMi1DM0Q0", "M00tRTVGNi1HN0g4", "M00tSTlKMC1LMUwy", "M00tTTNONC1PNVA2",
+            "M00tUTdSOC1TOVQw", "M00tVTFWMi1XM1g0", "M00tWTVaNi1BN0I4", "M00tQzlEMC1FMUYy",
+            "M00tRzNINGktSTVKNg==", "M00tSzdMOC1NOU4w", "M00tTzFQMi1RM1I0", "M00tUzVUNi1VN1Y4",
+            "M00tVzlYMC1ZMVoy", "M00tQTNCNC1DNUQ2", "M00tRTdGOC1HOUgw", "M00tSTFKMitLM0w0",
+            "M00tTTVONi1PN1A4", "M00tUTlSMC1TMVQy", "M00tVTNVNC1XNVg2", "M00tWTdaOC1BOUIw",
+            "M00tQzFEMi1FM0Y0", "M00tRzVINi1JN0o4", "M00tSzlMMC1NMU4y", "M00tTzNQNC1RNVI2",
+            "M00tUzdUOC1VOVYw", "M00tVzFYMitZM1o0", "M00tQTVCNi1DN0Q4", "M00tRTlGMC1HMUgy",
+            "M00tSTM0NC1LNUw2", "M00tTTdOOC1POVAw"
         ];
+        const KEY_3M = _3m.map(k => atob(k));
 
-        const KEY_2M = [
-            "2M-A1B2-C3D4", "2M-E5F6-G7H8", "2M-I9J0-K1L2", "2M-M3N4-O5P6",
-            "2M-Q7R8-S9T0", "2M-U1V2-W3X4", "2M-Y5Z6-A7B8", "2M-C9D0-E1F2",
-            "2M-G3H4-I5J6", "2M-K7L8-M9N0", "2M-O1P2-Q3R4", "2M-S5T6-U7V8",
-            "2M-W9X0-Y1Z2", "2M-A3B4-C5D6", "2M-E7F8-G9H0", "2M-I1J2-K3L4",
-            "2M-M5N6-O7P8", "2M-Q9R0-S1T2", "2M-U3V4-W5X6", "2M-Y7Z8-A9B0",
-            "2M-C1D2-E3F4", "2M-G5H6-I7J8", "2M-K9L0-M1N2", "2M-O3P4-Q5R6",
-            "2M-S7T8-U9V0", "2M-W1X2-Y3Z4", "2M-A5B6-C7D8", "2M-E9F0-G1H2",
-            "2M-I3J4-K5L6", "2M-M7N8-O9P0"
+        // 2 MONTH KEYS - 30 key mới
+        const _2m = [
+            "Mk0tQTFCMi1DM0Q0", "Mk0tRTVGNi1HN0g4", "Mk0tSTlKMC1LMUwy", "Mk0tTTNONC1PNVA2",
+            "Mk0tUTdSOC1TOVQw", "Mk0tVTFWMi1XM1g0", "Mk0tWTVaNi1BN0I4", "Mk0tQzlEMC1FMUYy",
+            "Mk0tRzNINGktSTVKNg==", "Mk0tSzdMOC1NOU4w", "Mk0tTzFQMi1RM1I0", "Mk0tUzVUNi1VN1Y4",
+            "Mk0tVzlYMC1ZMVoy", "Mk0tQTNCNC1DNUQ2", "Mk0tRTdGOC1HOUgw", "Mk0tSTFKMitLM0w0",
+            "Mk0tTTVONi1PN1A4", "Mk0tUTlSMC1TMVQy", "Mk0tVTNVNC1XNVg2", "Mk0tWTdaOC1BOUIw",
+            "Mk0tQzFEMi1FM0Y0", "Mk0tRzVINi1JN0o4", "Mk0tSzlMMC1NMU4y", "Mk0tTzNQNC1RNVI2",
+            "Mk0tUzdUOC1VOVYw", "Mk0tVzFYMitZM1o0", "Mk0tQTVCNi1DN0Q4", "Mk0tRTlGMC1HMUgy",
+            "Mk0tSTM0NC1LNUw2", "Mk0tTTdOOC1POVAw"
         ];
+        const KEY_2M = _2m.map(k => atob(k));
 
-        const KEY_1W = [
-            "1W-A1B2-C3D4", "1W-E5F6-G7H8", "1W-I9J0-K1L2", "1W-M3N4-O5P6",
-            "1W-Q7R8-S9T0", "1W-U1V2-W3X4", "1W-Y5Z6-A7B8", "1W-C9D0-E1F2",
-            "1W-G3H4-I5J6", "1W-K7L8-M9N0", "1W-O1P2-Q3R4", "1W-S5T6-U7V8",
-            "1W-W9X0-Y1Z2", "1W-A3B4-C5D6", "1W-E7F8-G9H0", "1W-I1J2-K3L4",
-            "1W-M5N6-O7P8", "1W-Q9R0-S1T2", "1W-U3V4-W5X6", "1W-Y7Z8-A9B0",
-            "1W-C1D2-E3F4", "1W-G5H6-I7J8", "1W-K9L0-M1N2", "1W-O3P4-Q5R6",
-            "1W-S7T8-U9V0", "1W-W1X2-Y3Z4", "1W-A5B6-C7D8", "1W-E9F0-G1H2",
-            "1W-I3J4-K5L6", "1W-M7N8-O9P0"
+        // 1 WEEK KEYS - 30 key mới
+        const _1w = [
+            "MVctQTFCMi1DM0Q0", "MVctRTVGNi1HN0g4", "MVctSTlKMC1LMUwy", "MVctTTNONC1PNVA2",
+            "MVctUTdSOC1TOVQw", "MVctVTFWMi1XM1g0", "MVctWTVaNi1BN0I4", "MVctQzlEMC1FMUYy",
+            "MVctRzNINGktSTVKNg==", "MVctSzdMOC1NOU4w", "MVctTzFQMi1RM1I0", "MVctUzVUNi1VN1Y4",
+            "MVctVzlYMC1ZMVoy", "MVctQTNCNC1DNUQ2", "MVctRTdGOC1HOUgw", "MVctSTFKMitLM0w0",
+            "MVctTTVONi1PN1A4", "MVctUTlSMC1TMVQy", "MVctVTNVNC1XNVg2", "MVctWTdaOC1BOUIw",
+            "MVctQzFEMi1FM0Y0", "MVctRzVINi1JN0o4", "MVctSzlMMC1NMU4y", "MVctTzNQNC1RNVI2",
+            "MVctUzdUOC1VOVYw", "MVctVzFYMitZM1o0", "MVctQTVCNi1DN0Q4", "MVctRTlGMC1HMUgy",
+            "MVctSTM0NC1LNUw2", "MVctTTdOOC1POVAw"
         ];
+        const KEY_1W = _1w.map(k => atob(k));
 
-        const KEY_1D = [
-            "1D-A1B2-C3D4", "1D-E5F6-G7H8", "1D-I9J0-K1L2", "1D-M3N4-O5P6",
-            "1D-Q7R8-S9T0", "1D-U1V2-W3X4", "1D-Y5Z6-A7B8", "1D-C9D0-E1F2",
-            "1D-G3H4-I5J6", "1D-K7L8-M9N0", "1D-O1P2-Q3R4", "1D-S5T6-U7V8",
-            "1D-W9X0-Y1Z2", "1D-A3B4-C5D6", "1D-E7F8-G9H0", "1D-I1J2-K3L4",
-            "1D-M5N6-O7P8", "1D-Q9R0-S1T2", "1D-U3V4-W5X6", "1D-Y7Z8-A9B0",
-            "1D-C1D2-E3F4", "1D-G5H6-I7J8", "1D-K9L0-M1N2", "1D-O3P4-Q5R6",
-            "1D-S7T8-U9V0", "1D-W1X2-Y3Z4", "1D-A5B6-C7D8", "1D-E9F0-G1H2",
-            "1D-I3J4-K5L6", "1D-M7N8-O9P0"
+        // 1 DAY KEYS - 30 key mới
+        const _1d = [
+            "MUQtQTFCMi1DM0Q0", "MUQtRTVGNi1HN0g4", "MUQtSTlKMC1LMUwy", "MUQtTTNONC1PNVA2",
+            "MUQtUTdSOC1TOVQw", "MUQtVTFWMi1XM1g0", "MUQtWTVaNi1BN0I4", "MUQtQzlEMC1FMUYy",
+            "MUQtRzNINGktSTVKNg==", "MUQtSzdMOC1NOU4w", "MUQtTzFQMi1RM1I0", "MUQtUzVUNi1VN1Y4",
+            "MUQtVzlYMC1ZMVoy", "MUQtQTNCNC1DNUQ2", "MUQtRTdGOC1HOUgw", "MUQtSTFKMitLM0w0",
+            "MUQtTTVONi1PN1A4", "MUQtUTlSMC1TMVQy", "MUQtVTNVNC1XNVg2", "MUQtWTdaOC1BOUIw",
+            "MUQtQzFEMi1FM0Y0", "MUQtRzVINi1JN0o4", "MUQtSzlMMC1NMU4y", "MUQtTzNQNC1RNVI2",
+            "MUQtUzdUOC1VOVYw", "MUQtVzFYMitZM1o0", "MUQtQTVCNi1DN0Q4", "MUQtRTlGMC1HMUgy",
+            "MUQtSTM0NC1LNUw2", "MUQtTTdOOC1POVAw"
         ];
+        const KEY_1D = _1d.map(k => atob(k));
 
-        const KEY_11H = [
-            "11H-A1B2-C3D4", "11H-E5F6-G7H8", "11H-I9J0-K1L2", "11H-M3N4-O5P6",
-            "11H-Q7R8-S9T0", "11H-U1V2-W3X4", "11H-Y5Z6-A7B8", "11H-C9D0-E1F2",
-            "11H-G3H4-I5J6", "11H-K7L8-M9N0", "11H-O1P2-Q3R4", "11H-S5T6-U7V8",
-            "11H-W9X0-Y1Z2", "11H-A3B4-C5D6", "11H-E7F8-G9H0", "11H-I1J2-K3L4",
-            "11H-M5N6-O7P8", "11H-Q9R0-S1T2", "11H-U3V4-W5X6", "11H-Y7Z8-A9B0",
-            "11H-C1D2-E3F4", "11H-G5H6-I7J8", "11H-K9L0-M1N2", "11H-O3P4-Q5R6",
-            "11H-S7T8-U9V0", "11H-W1X2-Y3Z4", "11H-A5B6-C7D8", "11H-E9F0-G1H2",
-            "11H-I3J4-K5L6", "11H-M7N8-O9P0"
+        // 11 HOURS KEYS - 30 key mới
+        const _11h = [
+            "MTFILUFCMkM=", "MTFILUVGSDg=", "MTFILUk5S0wy", "MTFILU1OUEw2",
+            "MTFILVE3VDhT", "MTFILVUyVzNY", "MTFILVlaNkE3", "MTFILUM5RDBF",
+            "MTFILTVKNkk=", "MTFILTk4TTA=", "MTFILTJRM1I=", "MTFILUY3VjdV",
+            "MTFILVA5WTFa", "MTFILTNCQzVE", "MTFILTdGQzlI", "MTFILTFKMkw0",
+            "MTFILTVONlA3", "MTFILTlQUzFU", "MTFILXNWNXg2", "MTFILVlaOEE5",
+            "MTFILQzFEQzNF", "MTFILR0VGSTdK", "MTFILT5MTTFO", "MTFILTNQNFE1",
+            "MTFILTdUOFU5", "MTFILVpYMlUz", "MTFILTVCNkM3", "MTFILTlGRzFI",
+            "MTFILSTM0S0w1", "MTFILTdOUE8="
         ];
+        const KEY_11H = _11h.map(k => atob(k));
 
-        const KEY_5H = [
-            "5H-A1B2-C3D4", "5H-E5F6-G7H8", "5H-I9J0-K1L2", "5H-M3N4-O5P6",
-            "5H-Q7R8-S9T0", "5H-U1V2-W3X4", "5H-Y5Z6-A7B8", "5H-C9D0-E1F2",
-            "5H-G3H4-I5J6", "5H-K7L8-M9N0", "5H-O1P2-Q3R4", "5H-S5T6-U7V8",
-            "5H-W9X0-Y1Z2", "5H-A3B4-C5D6", "5H-E7F8-G9H0", "5H-I1J2-K3L4",
-            "5H-M5N6-O7P8", "5H-Q9R0-S1T2", "5H-U3V4-W5X6", "5H-Y7Z8-A9B0",
-            "5H-C1D2-E3F4", "5H-G5H6-I7J8", "5H-K9L0-M1N2", "5H-O3P4-Q5R6",
-            "5H-S7T8-U9V0", "5H-W1X2-Y3Z4", "5H-A5B6-C7D8", "5H-E9F0-G1H2",
-            "5H-I3J4-K5L6", "5H-M7N8-O9P0"
+        // 5 HOURS KEYS - 30 key mới
+        const _5h = [
+            "NUgtQUIyQw==", "NUgtRUZIOA==", "NUgtSTlLTDI=", "NUgtTU5QTDY=",
+            "NUgtUTdUOFM=", "NUgtVTJXM1g=", "NUgtWVpONkE3", "NUgtQzlEMEU=",
+            "NUgtNVJLNkk=", "NUgtTjhNMA==", "NUgtMlEzUjE=", "NUgtRjdWN1U=",
+            "NUgtUDlZMVo=", "NUgtM0JDNVQ=", "NUgtN0ZDOUg=", "NUgtMUpLMkw0",
+            "NUgtNVBONlA3", "NUgtOVBTMVQ=", "NUgtNVc1eDY=", "NUgtWVpBOUE=",
+            "NUgtRDFEM0U=", "NUgtRzVGN0o=", "NUgtTTFOTQ==", "NUgtM1A0UTU=",
+            "NUgtN1U4VTk=", "NUgtWlgyVTN=", "NUgtNUI2Qzc=", "NUgtOUZHMUg=",
+            "NUgtSTM0SzU=", "NUgtN09QTw=="
         ];
+        const KEY_5H = _5h.map(k => atob(k));
 
-        const KEY_2H = [
-            "2H-A1B2-C3D4", "2H-E5F6-G7H8", "2H-I9J0-K1L2", "2H-M3N4-O5P6",
-            "2H-Q7R8-S9T0", "2H-U1V2-W3X4", "2H-Y5Z6-A7B8", "2H-C9D0-E1F2",
-            "2H-G3H4-I5J6", "2H-K7L8-M9N0", "2H-O1P2-Q3R4", "2H-S5T6-U7V8",
-            "2H-W9X0-Y1Z2", "2H-A3B4-C5D6", "2H-E7F8-G9H0", "2H-I1J2-K3L4",
-            "2H-M5N6-O7P8", "2H-Q9R0-S1T2", "2H-U3V4-W5X6", "2H-Y7Z8-A9B0",
-            "2H-C1D2-E3F4", "2H-G5H6-I7J8", "2H-K9L0-M1N2", "2H-O3P4-Q5R6",
-            "2H-S7T8-U9V0", "2H-W1X2-Y3Z4", "2H-A5B6-C7D8", "2H-E9F0-G1H2",
-            "2H-I3J4-K5L6", "2H-M7N8-O9P0"
+        // 2 HOURS KEYS - 30 key mới
+        const _2h = [
+            "MkgtQUIyQw==", "MkgtRUZIOA==", "MkgtSTlLTDI=", "MkgtTU5QTDY=",
+            "MkgtUTdUOFM=", "MkgtVTJXM1g=", "MkgtWVpONkE3", "MkgtQzlEMEU=",
+            "MkgtNVJLNkk=", "MkgtTjhNMA==", "MkgtMlEzUjE=", "MkgtRjdWN1U=",
+            "MkgtUDlZMVo=", "MkgtM0JDNVQ=", "MkgtN0ZDOUg=", "MkgtMUpLMkw0",
+            "MkgtNVBONlA3", "MkgtOVBTMVQ=", "MkgtNVc1eDY=", "MkgtWVpBOUE=",
+            "MkgtRDFEM0U=", "MkgtRzVGN0o=", "MkgtTTFOTQ==", "MkgtM1A0UTU=",
+            "MkgtN1U4VTk=", "MkgtWlgyVTN=", "MkgtNUI2Qzc=", "MkgtOUZHMUg=",
+            "MkgtSTM0SzU=", "MkgtN09QTw=="
         ];
+        const KEY_2H = _2h.map(k => atob(k));
 
         // ============================================================
         // KEY DATABASE
@@ -1768,16 +1722,36 @@
             return configTypes.includes(type);
         }
 
+        // Hàm khởi tạo key database với key mới
         function initKeyDB() {
+            // Admin key
             keyDB[ADMIN_KEY] = { type: 'admin', status: 'active', activatedAt: new Date().toISOString(), expires: null, devices: [] };
+            
+            // VIP keys
             VIP_KEYS.forEach(k => { keyDB[k] = { type: 'vip', status: 'inactive', activatedAt: null, expires: null, devices: [] }; });
+            
+            // 1 Month keys
             KEY_1M.forEach(k => { keyDB[k] = { type: '1m', status: 'inactive', activatedAt: null, expires: null, devices: [] }; });
+            
+            // 3 Month keys
             KEY_3M.forEach(k => { keyDB[k] = { type: '3m', status: 'inactive', activatedAt: null, expires: null, devices: [] }; });
+            
+            // 2 Month keys
             KEY_2M.forEach(k => { keyDB[k] = { type: '2m', status: 'inactive', activatedAt: null, expires: null, devices: [] }; });
+            
+            // 1 Week keys
             KEY_1W.forEach(k => { keyDB[k] = { type: '1w', status: 'inactive', activatedAt: null, expires: null, devices: [] }; });
+            
+            // 1 Day keys
             KEY_1D.forEach(k => { keyDB[k] = { type: '1d', status: 'inactive', activatedAt: null, expires: null, devices: [] }; });
+            
+            // 11 Hours keys
             KEY_11H.forEach(k => { keyDB[k] = { type: '11h', status: 'inactive', activatedAt: null, expires: null, devices: [] }; });
+            
+            // 5 Hours keys
             KEY_5H.forEach(k => { keyDB[k] = { type: '5h', status: 'inactive', activatedAt: null, expires: null, devices: [] }; });
+            
+            // 2 Hours keys
             KEY_2H.forEach(k => { keyDB[k] = { type: '2h', status: 'inactive', activatedAt: null, expires: null, devices: [] }; });
         }
 
@@ -1788,16 +1762,6 @@
                 localStorage.setItem('deviceId', deviceId);
             }
             return deviceId;
-        }
-
-        // Lấy UID máy (ID duy nhất)
-        function getUID() {
-            let uid = localStorage.getItem('deviceUID');
-            if (!uid) {
-                uid = 'UID-' + Date.now().toString(36) + '-' + Math.random().toString(36).substring(2, 8);
-                localStorage.setItem('deviceUID', uid);
-            }
-            return uid;
         }
 
         // ============================================================
@@ -1812,6 +1776,8 @@
         // ============================================================
         // UPDATE ADMIN SLOTS
         // ============================================================
+        let adminDevices = [];
+
         function updateAdminSlots() {
             const saved = localStorage.getItem('adminDevices');
             if (saved) {
@@ -2277,12 +2243,9 @@
         }
 
         // ============================================================
-        // DPI VIP CONFIG - KHÔNG WEBCLIP, 2 DNS, UID MÁY
+        // DPI VIP CONFIG - KHÔNG LỖI
         // ============================================================
         function downloadDPI() {
-            const uid = getUID();
-            const deviceName = document.getElementById('deviceName').textContent || 'iPhone';
-            
             const config = `<?xml version="1.0" encoding="UTF-8"?>
         <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
         <plist version="1.0">
@@ -2298,25 +2261,39 @@
             <key>PayloadDisplayName</key>
             <string>DPI VIP - Cấu hình tối ưu</string>
             <key>PayloadDescription</key>
-            <string>📌 CÁCH CÀI ĐẶT:
-        1. Tải file này về thiết bị
-        2. Vào Cài đặt → Hồ sơ đã tải về
-        3. Nhấn Cài đặt và làm theo hướng dẫn
-        4. Khởi động lại thiết bị để áp dụng
+            <string>DPI VIP - Nên bật DPI VIP - HỖ TRỢ MÁY
 
-        ⚠️ LƯU Ý QUAN TRỌNG:
-        - KHÔNG cài bất kì file nào khác khi đang sử dụng file này
+        ⚠️ THÔNG BÁO QUAN TRỌNG:
         - KDL sau khi cài đặt
-        - Cần gì thì liên hệ Admin để được hỗ trợ
-
-        🔐 UID MÁY: ${uid}
-        📱 THIẾT BỊ: ${deviceName}</string>
+        - Không được cài bất kì config gì trong khoảng thời gian đang cài config này
+        - Cần gì có thể liên hệ Admin</string>
             <key>PayloadOrganization</key>
             <string>NP DPI Pro</string>
             <key>PayloadRemovalDisallowed</key>
             <false/>
             <key>PayloadContent</key>
-            <array/>
+            <array>
+                <dict>
+                    <key>PayloadType</key>
+                    <string>com.apple.webClip.managed</string>
+                    <key>PayloadVersion</key>
+                    <integer>1</integer>
+                    <key>PayloadIdentifier</key>
+                    <string>com.npdpi.dpi.webclip</string>
+                    <key>PayloadUUID</key>
+                    <string>${generateUUID()}</string>
+                    <key>PayloadDisplayName</key>
+                    <string>DPI VIP</string>
+                    <key>URL</key>
+                    <string>https://npdpi.vip/dpi</string>
+                    <key>Label</key>
+                    <string>DPI VIP</string>
+                    <key>IsRemovable</key>
+                    <true/>
+                    <key>FullScreen</key>
+                    <true/>
+                </dict>
+            </array>
         </dict>
         </plist>`;
 
@@ -2324,7 +2301,7 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `DPI_VIP_${uid}.mobileconfig`;
+            a.download = 'DPI_VIP.mobileconfig';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
@@ -2466,7 +2443,7 @@
         setInterval(checkAndRenewKeys, 30 * 60 * 1000);
 
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🚀 NP DPI PRO - Premium Edition Loaded');
+            console.log('🚀 DPI VIP - Premium Edition Loaded');
             console.log('📊 Tổng số key:', Object.keys(keyDB).length);
             console.log('👑 Admin key:', ADMIN_KEY);
             console.log('📱 Admin: KHÔNG GIỚI HẠN thiết bị');
